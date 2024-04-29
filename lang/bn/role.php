@@ -1,0 +1,28 @@
+<?php
+return array(
+    'create_title' => 'রোল তৈরি করুন',
+    'index_title' => 'সকল রোল সমূহ',
+    'trash_title' => 'সকল ডিলেটকৃত রোল সমূহ',
+    'edit_title' => 'রোলটি সম্পাদন করুন',
+    'create_new' => 'নতুন রোল',
+    'view' => 'সকল রোল',
+    'role_name_en' => 'রোল নাম ইংরেজীতে',
+    'role_name_bn' => 'রোল নাম বাংলায়',
+    'order_by_error_required' => 'সিরয়িাল নাম্বার প্রদান করুন',
+    'order_by_error_unique' => 'এই সিরিয়াল নাম্বারটি বর্তমানে ব্যাবহারিত হয়েছে',
+    'role_name_en_required' => 'রোল নাম ইংরেজীতে প্রদান করুন',
+    'insert_message' => 'রোল তৈরি করা হয়েছে',
+    'update_message' => 'রোল সম্পাদন করা হয়েছে',
+    'delete_message' => 'রোল ডিলেট করা হয়েছে',
+    'deleted_list' => 'ডিলেটকৃত রোল সমূহ',
+    'role_name' => 'রোল নাম',
+    'destroy_message' => 'রোল ডিলিট করা হয়েছে',
+    'restore_message' => 'রোল পুনুরুদ্ধার সম্পন্ন হয়েছে',
+    'delete_message' => 'রোলটি আপনার সফটওয়্যার থেকে মুছে দেওয়া হয়েছে',
+    'properties_title' => 'রোল বিস্তারিত তথ্য',
+    'role_name_bn_unique' => 'এই বাংলা রোল নামটি ব্যবহারিত হয়েছে',
+    'role_name_en_unique' => 'এই ইংরেজী রোল নামটি ব্যাবহারিত হয়েছে',
+    'permission_message' => 'পারমিশন আপডেট করা হয়েছে',
+    'this_role' => 'এই রোলের ইউজার সমূহ',
+
+);
