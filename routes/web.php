@@ -24,6 +24,7 @@ use App\Http\Controllers\CupponController;
 use App\Http\Controllers\TrendController;
 use App\Http\Controllers\AddProductToTrendController;
 use App\Http\Controllers\GuestOrderController;
+use App\Http\Controllers\SliderController;
 // fronted 
 use App\Http\Controllers\FrontendController;
 
@@ -108,9 +109,13 @@ Route::resources([
     'cuppon'=> CupponController::class,
     'trend'=> TrendController::class,
     'user_order'=> GuestOrderController::class,
+    'add_product_to_trend'=>AddProductToTrendController::class,
+    'slider'=>SliderController::class,
 ]);
 
 Route::get('updateOrderStatus/{id}',[GuestOrderController::class,'updateOrderStatus']);
+
+Route::get('backend/user_order/order_details/{order_id}',[GuestOrderController::class,'OrderDetails']);
 
 Route::get('categorieStatusChange/{id}',[CategorieController::class,'categorieStatusChange']);
 Route::get('categorie_trash_list',[CategorieController::class,'trash_list'])->name('categorie.trash_list');

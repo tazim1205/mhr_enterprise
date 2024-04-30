@@ -30,6 +30,7 @@
                             <thead>
                                 <tr>
                                     <th>@lang('common.sl')</th>
+                                    <th>Order Date</th>
                                     <th>@lang('user_order.user_name')</th>
                                     <th>@lang('user_order.mobile')</th>
                                     <th>@lang('user_order.product_info')</th>
@@ -38,6 +39,7 @@
                                     <th>@lang('user_order.address')</th>
                                     <th>@lang('user_order.total')</th>
                                     <th>@lang('common.status')</th>
+                                    <th>@lang('common.actions')</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -62,6 +64,7 @@
                 ajax: "{{ url('user_order') }}",
                 columns: [
                 {data: 'sl', name: 'sl'},
+                {data: 'order_date', name: 'order_date'},
                 {data: 'name', name: 'name'},
                 {data: 'mobile', name: 'mobile'},
                 {data: 'product_info', name: 'product_info'},
@@ -69,7 +72,8 @@
                 {data: 'district_id', name: 'district_id'},
                 {data: 'address', name: 'address'},
                 {data: 'total', name: 'total'},
-                {data: 'status', name: 'status', orderable: false, searchable: false},
+                {data: 'status', name: 'status'},
+                {data: 'action', name: 'action', orderable: false, searchable: false},
             ]
             });
         });

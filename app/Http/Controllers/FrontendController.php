@@ -23,6 +23,7 @@ use App\Models\cuppon;
 use App\Models\order;
 use App\Models\order_info;
 use App\Models\wishlist;
+use App\Models\slider;
 use Session;
 use Hash;
 use Auth;
@@ -39,7 +40,8 @@ class FrontendController extends Controller
     }
     public function shop()
     {
-        return view("frontend.shop");
+        $data = product::all();
+        return view("frontend.shop",compact('data'));
     }
     public function cart()
     {

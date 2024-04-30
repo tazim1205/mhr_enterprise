@@ -15,7 +15,6 @@ class PermissionsTableSeeder extends Seeder
     public function run()
     {
         
-        \DB::statement('SET FOREIGN_KEY_CHECKS = 0');
 
         \DB::table('permissions')->delete();
         
@@ -1648,6 +1647,699 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2024-04-23 16:20:20',
                 'updated_at' => '2024-04-23 16:20:20',
+            ),
+            181 => 
+            array (
+                'id' => 412,
+                'name' => 'Create Product create',
+                'parent' => 'Create Product',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-24 00:59:57',
+                'updated_at' => '2024-04-24 00:59:57',
+            ),
+            182 => 
+            array (
+                'id' => 413,
+                'name' => 'Create Product index',
+                'parent' => 'Create Product',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-24 00:59:57',
+                'updated_at' => '2024-04-24 00:59:57',
+            ),
+            183 => 
+            array (
+                'id' => 414,
+                'name' => 'Create Product show',
+                'parent' => 'Create Product',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-24 00:59:58',
+                'updated_at' => '2024-04-24 00:59:58',
+            ),
+            184 => 
+            array (
+                'id' => 415,
+                'name' => 'Create Product edit',
+                'parent' => 'Create Product',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-24 00:59:58',
+                'updated_at' => '2024-04-24 00:59:58',
+            ),
+            185 => 
+            array (
+                'id' => 416,
+                'name' => 'Create Product destroy',
+                'parent' => 'Create Product',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-24 00:59:58',
+                'updated_at' => '2024-04-24 00:59:58',
+            ),
+            186 => 
+            array (
+                'id' => 417,
+                'name' => 'Create Product trash',
+                'parent' => 'Create Product',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-24 00:59:58',
+                'updated_at' => '2024-04-24 00:59:58',
+            ),
+            187 => 
+            array (
+                'id' => 418,
+                'name' => 'Create Product restore',
+                'parent' => 'Create Product',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-24 00:59:58',
+                'updated_at' => '2024-04-24 00:59:58',
+            ),
+            188 => 
+            array (
+                'id' => 419,
+                'name' => 'Create Product delete',
+                'parent' => 'Create Product',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-24 00:59:58',
+                'updated_at' => '2024-04-24 00:59:58',
+            ),
+            189 => 
+            array (
+                'id' => 420,
+                'name' => 'Create Product status',
+                'parent' => 'Create Product',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-24 00:59:58',
+                'updated_at' => '2024-04-24 00:59:58',
+            ),
+            190 => 
+            array (
+                'id' => 421,
+                'name' => 'Create Product properties',
+                'parent' => 'Create Product',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-24 00:59:58',
+                'updated_at' => '2024-04-24 00:59:58',
+            ),
+            191 => 
+            array (
+                'id' => 422,
+                'name' => 'Create Product print',
+                'parent' => 'Create Product',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-24 00:59:58',
+                'updated_at' => '2024-04-24 00:59:58',
+            ),
+            192 => 
+            array (
+                'id' => 423,
+                'name' => 'Shipping create',
+                'parent' => 'Shipping',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-25 15:51:21',
+                'updated_at' => '2024-04-25 15:51:21',
+            ),
+            193 => 
+            array (
+                'id' => 424,
+                'name' => 'Shipping index',
+                'parent' => 'Shipping',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-25 15:51:21',
+                'updated_at' => '2024-04-25 15:51:21',
+            ),
+            194 => 
+            array (
+                'id' => 425,
+                'name' => 'Shipping show',
+                'parent' => 'Shipping',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-25 15:51:21',
+                'updated_at' => '2024-04-25 15:51:21',
+            ),
+            195 => 
+            array (
+                'id' => 426,
+                'name' => 'Shipping edit',
+                'parent' => 'Shipping',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-25 15:51:21',
+                'updated_at' => '2024-04-25 15:51:21',
+            ),
+            196 => 
+            array (
+                'id' => 427,
+                'name' => 'Shipping destroy',
+                'parent' => 'Shipping',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-25 15:51:21',
+                'updated_at' => '2024-04-25 15:51:21',
+            ),
+            197 => 
+            array (
+                'id' => 428,
+                'name' => 'Shipping trash',
+                'parent' => 'Shipping',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-25 15:51:21',
+                'updated_at' => '2024-04-25 15:51:21',
+            ),
+            198 => 
+            array (
+                'id' => 429,
+                'name' => 'Shipping restore',
+                'parent' => 'Shipping',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-25 15:51:21',
+                'updated_at' => '2024-04-25 15:51:21',
+            ),
+            199 => 
+            array (
+                'id' => 430,
+                'name' => 'Shipping delete',
+                'parent' => 'Shipping',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-25 15:51:21',
+                'updated_at' => '2024-04-25 15:51:21',
+            ),
+            200 => 
+            array (
+                'id' => 431,
+                'name' => 'Shipping status',
+                'parent' => 'Shipping',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-25 15:51:21',
+                'updated_at' => '2024-04-25 15:51:21',
+            ),
+            201 => 
+            array (
+                'id' => 432,
+                'name' => 'Shipping properties',
+                'parent' => 'Shipping',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-25 15:51:21',
+                'updated_at' => '2024-04-25 15:51:21',
+            ),
+            202 => 
+            array (
+                'id' => 433,
+                'name' => 'Shipping print',
+                'parent' => 'Shipping',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-25 15:51:21',
+                'updated_at' => '2024-04-25 15:51:21',
+            ),
+            203 => 
+            array (
+                'id' => 434,
+                'name' => 'Cuppon create',
+                'parent' => 'Cuppon',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:17:17',
+                'updated_at' => '2024-04-27 16:17:17',
+            ),
+            204 => 
+            array (
+                'id' => 435,
+                'name' => 'Cuppon index',
+                'parent' => 'Cuppon',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:17:18',
+                'updated_at' => '2024-04-27 16:17:18',
+            ),
+            205 => 
+            array (
+                'id' => 436,
+                'name' => 'Cuppon show',
+                'parent' => 'Cuppon',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:17:18',
+                'updated_at' => '2024-04-27 16:17:18',
+            ),
+            206 => 
+            array (
+                'id' => 437,
+                'name' => 'Cuppon edit',
+                'parent' => 'Cuppon',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:17:18',
+                'updated_at' => '2024-04-27 16:17:18',
+            ),
+            207 => 
+            array (
+                'id' => 438,
+                'name' => 'Cuppon destroy',
+                'parent' => 'Cuppon',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:17:18',
+                'updated_at' => '2024-04-27 16:17:18',
+            ),
+            208 => 
+            array (
+                'id' => 439,
+                'name' => 'Cuppon trash',
+                'parent' => 'Cuppon',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:17:18',
+                'updated_at' => '2024-04-27 16:17:18',
+            ),
+            209 => 
+            array (
+                'id' => 440,
+                'name' => 'Cuppon restore',
+                'parent' => 'Cuppon',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:17:18',
+                'updated_at' => '2024-04-27 16:17:18',
+            ),
+            210 => 
+            array (
+                'id' => 441,
+                'name' => 'Cuppon delete',
+                'parent' => 'Cuppon',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:17:18',
+                'updated_at' => '2024-04-27 16:17:18',
+            ),
+            211 => 
+            array (
+                'id' => 442,
+                'name' => 'Cuppon status',
+                'parent' => 'Cuppon',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:17:18',
+                'updated_at' => '2024-04-27 16:17:18',
+            ),
+            212 => 
+            array (
+                'id' => 443,
+                'name' => 'Cuppon properties',
+                'parent' => 'Cuppon',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:17:18',
+                'updated_at' => '2024-04-27 16:17:18',
+            ),
+            213 => 
+            array (
+                'id' => 444,
+                'name' => 'Cuppon print',
+                'parent' => 'Cuppon',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:17:18',
+                'updated_at' => '2024-04-27 16:17:18',
+            ),
+            214 => 
+            array (
+                'id' => 445,
+                'name' => 'Trend create',
+                'parent' => 'Trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:18:03',
+                'updated_at' => '2024-04-27 16:18:03',
+            ),
+            215 => 
+            array (
+                'id' => 446,
+                'name' => 'Trend index',
+                'parent' => 'Trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:18:03',
+                'updated_at' => '2024-04-27 16:18:03',
+            ),
+            216 => 
+            array (
+                'id' => 447,
+                'name' => 'Trend show',
+                'parent' => 'Trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:18:03',
+                'updated_at' => '2024-04-27 16:18:03',
+            ),
+            217 => 
+            array (
+                'id' => 448,
+                'name' => 'Trend edit',
+                'parent' => 'Trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:18:03',
+                'updated_at' => '2024-04-27 16:18:03',
+            ),
+            218 => 
+            array (
+                'id' => 449,
+                'name' => 'Trend destroy',
+                'parent' => 'Trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:18:03',
+                'updated_at' => '2024-04-27 16:18:03',
+            ),
+            219 => 
+            array (
+                'id' => 450,
+                'name' => 'Trend trash',
+                'parent' => 'Trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:18:03',
+                'updated_at' => '2024-04-27 16:18:03',
+            ),
+            220 => 
+            array (
+                'id' => 451,
+                'name' => 'Trend restore',
+                'parent' => 'Trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:18:04',
+                'updated_at' => '2024-04-27 16:18:04',
+            ),
+            221 => 
+            array (
+                'id' => 452,
+                'name' => 'Trend delete',
+                'parent' => 'Trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:18:04',
+                'updated_at' => '2024-04-27 16:18:04',
+            ),
+            222 => 
+            array (
+                'id' => 453,
+                'name' => 'Trend status',
+                'parent' => 'Trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:18:04',
+                'updated_at' => '2024-04-27 16:18:04',
+            ),
+            223 => 
+            array (
+                'id' => 454,
+                'name' => 'Trend properties',
+                'parent' => 'Trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:18:04',
+                'updated_at' => '2024-04-27 16:18:04',
+            ),
+            224 => 
+            array (
+                'id' => 455,
+                'name' => 'Trend print',
+                'parent' => 'Trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:18:04',
+                'updated_at' => '2024-04-27 16:18:04',
+            ),
+            225 => 
+            array (
+                'id' => 456,
+                'name' => 'Add product to trend create',
+                'parent' => 'Add product to trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:21:01',
+                'updated_at' => '2024-04-27 16:21:01',
+            ),
+            226 => 
+            array (
+                'id' => 457,
+                'name' => 'Add product to trend index',
+                'parent' => 'Add product to trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:21:01',
+                'updated_at' => '2024-04-27 16:21:01',
+            ),
+            227 => 
+            array (
+                'id' => 458,
+                'name' => 'Add product to trend show',
+                'parent' => 'Add product to trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:21:01',
+                'updated_at' => '2024-04-27 16:21:01',
+            ),
+            228 => 
+            array (
+                'id' => 459,
+                'name' => 'Add product to trend edit',
+                'parent' => 'Add product to trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:21:01',
+                'updated_at' => '2024-04-27 16:21:01',
+            ),
+            229 => 
+            array (
+                'id' => 460,
+                'name' => 'Add product to trend destroy',
+                'parent' => 'Add product to trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:21:01',
+                'updated_at' => '2024-04-27 16:21:01',
+            ),
+            230 => 
+            array (
+                'id' => 461,
+                'name' => 'Add product to trend trash',
+                'parent' => 'Add product to trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:21:01',
+                'updated_at' => '2024-04-27 16:21:01',
+            ),
+            231 => 
+            array (
+                'id' => 462,
+                'name' => 'Add product to trend restore',
+                'parent' => 'Add product to trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:21:01',
+                'updated_at' => '2024-04-27 16:21:01',
+            ),
+            232 => 
+            array (
+                'id' => 463,
+                'name' => 'Add product to trend delete',
+                'parent' => 'Add product to trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:21:01',
+                'updated_at' => '2024-04-27 16:21:01',
+            ),
+            233 => 
+            array (
+                'id' => 464,
+                'name' => 'Add product to trend status',
+                'parent' => 'Add product to trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:21:01',
+                'updated_at' => '2024-04-27 16:21:01',
+            ),
+            234 => 
+            array (
+                'id' => 465,
+                'name' => 'Add product to trend properties',
+                'parent' => 'Add product to trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:21:01',
+                'updated_at' => '2024-04-27 16:21:01',
+            ),
+            235 => 
+            array (
+                'id' => 466,
+                'name' => 'Add product to trend print',
+                'parent' => 'Add product to trend',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-27 16:21:01',
+                'updated_at' => '2024-04-27 16:21:01',
+            ),
+            236 => 
+            array (
+                'id' => 467,
+                'name' => 'Customer Orders create',
+                'parent' => 'Customer Orders',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-28 15:07:09',
+                'updated_at' => '2024-04-28 15:07:09',
+            ),
+            237 => 
+            array (
+                'id' => 468,
+                'name' => 'Customer Orders index',
+                'parent' => 'Customer Orders',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-28 15:07:09',
+                'updated_at' => '2024-04-28 15:07:09',
+            ),
+            238 => 
+            array (
+                'id' => 469,
+                'name' => 'Customer Orders show',
+                'parent' => 'Customer Orders',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-28 15:07:09',
+                'updated_at' => '2024-04-28 15:07:09',
+            ),
+            239 => 
+            array (
+                'id' => 470,
+                'name' => 'Customer Orders edit',
+                'parent' => 'Customer Orders',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-28 15:07:09',
+                'updated_at' => '2024-04-28 15:07:09',
+            ),
+            240 => 
+            array (
+                'id' => 471,
+                'name' => 'Customer Orders destroy',
+                'parent' => 'Customer Orders',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-28 15:07:09',
+                'updated_at' => '2024-04-28 15:07:09',
+            ),
+            241 => 
+            array (
+                'id' => 472,
+                'name' => 'Customer Orders trash',
+                'parent' => 'Customer Orders',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-28 15:07:09',
+                'updated_at' => '2024-04-28 15:07:09',
+            ),
+            242 => 
+            array (
+                'id' => 473,
+                'name' => 'Customer Orders restore',
+                'parent' => 'Customer Orders',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-28 15:07:09',
+                'updated_at' => '2024-04-28 15:07:09',
+            ),
+            243 => 
+            array (
+                'id' => 474,
+                'name' => 'Customer Orders delete',
+                'parent' => 'Customer Orders',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-28 15:07:09',
+                'updated_at' => '2024-04-28 15:07:09',
+            ),
+            244 => 
+            array (
+                'id' => 475,
+                'name' => 'Customer Orders status',
+                'parent' => 'Customer Orders',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-28 15:07:09',
+                'updated_at' => '2024-04-28 15:07:09',
+            ),
+            245 => 
+            array (
+                'id' => 476,
+                'name' => 'Customer Orders properties',
+                'parent' => 'Customer Orders',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-28 15:07:09',
+                'updated_at' => '2024-04-28 15:07:09',
+            ),
+            246 => 
+            array (
+                'id' => 477,
+                'name' => 'Customer Orders print',
+                'parent' => 'Customer Orders',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-28 15:07:09',
+                'updated_at' => '2024-04-28 15:07:09',
+            ),
+            247 => 
+            array (
+                'id' => 489,
+                'name' => 'Slider Settings create',
+                'parent' => 'Slider Settings',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-30 11:15:41',
+                'updated_at' => '2024-04-30 11:15:41',
+            ),
+            248 => 
+            array (
+                'id' => 490,
+                'name' => 'Slider Settings index',
+                'parent' => 'Slider Settings',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-30 11:15:41',
+                'updated_at' => '2024-04-30 11:15:41',
+            ),
+            249 => 
+            array (
+                'id' => 491,
+                'name' => 'Slider Settings show',
+                'parent' => 'Slider Settings',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-30 11:15:41',
+                'updated_at' => '2024-04-30 11:15:41',
+            ),
+            250 => 
+            array (
+                'id' => 492,
+                'name' => 'Slider Settings edit',
+                'parent' => 'Slider Settings',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-30 11:15:41',
+                'updated_at' => '2024-04-30 11:15:41',
+            ),
+            251 => 
+            array (
+                'id' => 493,
+                'name' => 'Slider Settings destroy',
+                'parent' => 'Slider Settings',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-30 11:15:41',
+                'updated_at' => '2024-04-30 11:15:41',
+            ),
+            252 => 
+            array (
+                'id' => 494,
+                'name' => 'Slider Settings trash',
+                'parent' => 'Slider Settings',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-30 11:15:41',
+                'updated_at' => '2024-04-30 11:15:41',
+            ),
+            253 => 
+            array (
+                'id' => 495,
+                'name' => 'Slider Settings restore',
+                'parent' => 'Slider Settings',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-30 11:15:41',
+                'updated_at' => '2024-04-30 11:15:41',
+            ),
+            254 => 
+            array (
+                'id' => 496,
+                'name' => 'Slider Settings delete',
+                'parent' => 'Slider Settings',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-30 11:15:41',
+                'updated_at' => '2024-04-30 11:15:41',
+            ),
+            255 => 
+            array (
+                'id' => 497,
+                'name' => 'Slider Settings status',
+                'parent' => 'Slider Settings',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-30 11:15:41',
+                'updated_at' => '2024-04-30 11:15:41',
+            ),
+            256 => 
+            array (
+                'id' => 498,
+                'name' => 'Slider Settings properties',
+                'parent' => 'Slider Settings',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-30 11:15:41',
+                'updated_at' => '2024-04-30 11:15:41',
+            ),
+            257 => 
+            array (
+                'id' => 499,
+                'name' => 'Slider Settings print',
+                'parent' => 'Slider Settings',
+                'guard_name' => 'web',
+                'created_at' => '2024-04-30 11:15:42',
+                'updated_at' => '2024-04-30 11:15:42',
             ),
         ));
         

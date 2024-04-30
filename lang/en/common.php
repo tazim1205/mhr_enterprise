@@ -58,4 +58,6 @@ return array(
     'total_roles' => 'Total Roles',
     'shop_by_categorie' => 'Shop by categorie',
     'shop_by_sub_categorie' => 'Shop by sub categorie',
+    'all' => 'All Data',
+    'deleted_list' => 'Deleted Data List',
 );
