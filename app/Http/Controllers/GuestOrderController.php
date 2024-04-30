@@ -27,6 +27,9 @@ class GuestOrderController extends Controller
                     ->addColumn('sl',function($row){
                         return $this->sl = $this->sl+1;
                     })
+                    ->addColumn('order_date',function($v){
+                        return date("d-m-Y", strtotime($v->created_at)).'<br>'.date("h:i A", strtotime($v->created_at));
+                    })
                     ->addColumn('name',function($v){
 
                         return $v->name;  
@@ -88,14 +91,41 @@ class GuestOrderController extends Controller
                         
                         return $total;  
                     })
-                    ->addColumn('status', function($row){
-                        return '<div><a href="'.url('updateOrderStatus',$row->id).'">
-                        <button class="btn btn-success">'.__('user_order.accept').' </button>
-                        </a>
-                    </div>';
+                    ->addColumn('status',function($v){
+                        if($v->status == 0)
+                        {
+                            return '<span class="btn btn-success">Incomplete</span>';
+                        }
+                        else if($v->status == 1)
+                        {
+                            return '<span class="btn btn-warning">Pending</span>';
+                        }
+                        else if($v->status == 2)
+                        {
+                            return '<span class="btn btn-primary">Processing</span>';
+                        }
+                        else if($v->status == 3)
+                        {
+                            return '<span class="btn btn-info">In Delivery</span>';
+                        }
+                        else if($v->status == 4)
+                        {
+                            return '<span class="btn btn-success">Completed</span>';
+                        }
+                        else if($v->status == 5)
+                        {
+                            return '<span class="btn btn-danger">Canceled</span>';
+                        }
+                        else
+                        {
+                            return $v->status;
+                        }
+                    })
+                    ->addColumn('action', function($v){
+                        return '<a href="'.url('backend/user_order/order_details',$v->id).'" class="btn btn-primary">View</a>';
 
                     })
-                    ->rawColumns(['sl','name','mobile','division_id','district_id','address','total','status','product_info'])
+                    ->rawColumns(['sl','order_date','name','mobile','division_id','district_id','address','total','product_info','status','action'])
                     ->make(true);
         }
         return view('backend.user_order.index');
@@ -147,5 +177,14 @@ class GuestOrderController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    
+    public function OrderDetails($order_id)
+    {
+        $order = order::find($order_id);
+        if(!empty($order))
+        {
+            return view('backend.user_order.order_details',compact('order'));
+        }
     }
 }

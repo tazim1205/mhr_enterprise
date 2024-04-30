@@ -1,0 +1,21 @@
+<?php
+return array(
+    'create_title' => 'Create slider',
+    'edit_title' => 'Update slider',
+    'index_title' => 'All slider',
+    'trash_title' => 'All Deleted slider',
+    'create_new' => 'New slider',
+    'view' => 'All slider',
+    'deleted_list' => 'Deleted slider',
+    'title' => 'Title',
+    'title_en' => 'Title English',
+    'title_bn' => 'Title Bangla',
+    'image' => 'Image',
+    'slider' => 'Slider',
+    'create_message'=>'slider Created Successfully',
+    'update_message'=>'slider Is Successfully Updated',
+    'status_message'=>'Status Changed',
+    'delete_message'=>'slider Is Deleted',
+    'retrive_message'=>'slider Retrive Successfully',
+    'permenant_delete'=>'slider Permenantly Deleted',
+);
