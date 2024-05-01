@@ -42,7 +42,7 @@
                         <h4><a href="#">@if(config('app.locale') == 'en'){{$p->product_name_en}}@elseif(config('app.locale') == 'bn'){{$p->product_name_bn}}@endif</a></h4>
                         <div class="product-bottom-details">
                             @if($p->discount_amount > 0)
-                            <div class="product-price"><small> ${{$p->regular_price}}</small> ${{$p->discount_amount}}</div>
+                            <div class="product-price"><small> ${{$p->regular_price}}</small> ${{$p->regular_price - $p->discount_amount}}</div>
                             @else 
                             <div class="product-price">${{$p->regular_price}}</div>
                             @endif

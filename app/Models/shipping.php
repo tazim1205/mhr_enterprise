@@ -11,4 +11,9 @@ class shipping extends Model
     use HasFactory,SoftDeletes;
 
     protected $guarded = [];
+
+    public function order()
+    {
+        return $this->hasMany(order::class,'shipping_id');
+    }
 }

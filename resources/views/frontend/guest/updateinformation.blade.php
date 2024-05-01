@@ -122,54 +122,51 @@
         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-7 col-12 mt-4">
             <div class="col-md-12 p-4 userdashboard">
 
-                <strong><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Personal Information</strong><br><br>
-                <table class="table table-bordered">
-                    <tbody>
-                        <tr>
-                            <th>Name:</th>
-                            <td>{{ Auth('guest')->user()->first_name }} {{ Auth('guest')->user()->last_name }}</td>
-                        </tr>
-
-                        <tr>
-                            <th>Email:</th>
-                            <td>{{ Auth('guest')->user()->email }}</td>
-                        </tr>
-
-                        <tr>
-                            <th>Phone:</th>
-                            <td>{{ Auth('guest')->user()->mobile }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-
-
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-4">
-                        <div class="dash p-3 bg-primary">
-                            {{--<label>{{ count($data) }}</label><br>--}}
-                            <a href="">Total Order</a>
+                <strong><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Personal Information</strong>
+                
+                <form action="{{url('guest_user_update')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                    <div class="row profile-body form-group p-4">
+                        <div class="col-lg-6 p-2">
+                            <label class="form-label">First Name :</label>
+                            <input type="text" class="form-control form-control-sm inputBorder w-80"
+                            value="{{Auth::guard('guest')->user()->first_name}}"
+                            name="first_name"
+                            required>
+                        </div>
+                        <div class="col-lg-6 p-2">
+                            <label class="form-label">Last Name :</label>
+                            <input type="text" class="form-control form-control-sm inputBorder"
+                            value="{{Auth::guard('guest')->user()->last_name}}"
+                            name="last_name"
+                            required>
+                        </div>
+                        <div class="col-lg-6 p-2">
+                            <label class="form-label">Email :</label>
+                            <input type="email" class="form-control form-control-sm inputBorder"
+                            value="{{Auth::guard('guest')->user()->email}}"
+                            name="email"
+                            required>
+                        </div>
+                        <div class="col-lg-6 p-2">
+                            <label class="form-label">Mobile :</label>
+                            <input type="text" class="form-control form-control-sm inputBorder"
+                            value="{{Auth::guard('guest')->user()->mobile}}"
+                            name="mobile"
+                            required>
+                        </div>
+                        <div class="col-lg-6 p-2">
+                            <label class="form-label">Image :</label>
+                            <input type="file" class="form-control form-control-sm inputBorder"
+                            value=""
+                            name="image"
+                            required>
+                        </div>
+                        <div class="col-6 mt-4" style="text-align: right">
+                            <button type="submit" id="submit" class="btn  btn-success"> <i class="fa fa-save"></i> Update</button>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-4">
-                        <div class="dash p-3 bg-info">
-                            {{--<label>{{ count($pending) }}</label><br>--}}
-                            <a href="">Pending Order</a>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-4">
-                        <div class="dash p-3 bg-info">
-                            {{--<label>{{ count($processing) }}</label><br>--}}
-                            <a href="">Processing Order</a>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-4">
-                        <div class="dash p-3 bg-primary">
-                            {{--<label>{{ count($delivered) }}</label><br>--}}
-                            <a href="">Delivered Order</a>
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

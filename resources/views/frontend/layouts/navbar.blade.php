@@ -57,10 +57,6 @@
         margin-left: 1px;
     }
 
-    li:hover {
-        background-color: #95B4CA;
-    }
-
     .parent li:hover {
         background-color: #F0F0F0;
     }
@@ -69,6 +65,17 @@
         font-size: 12px;
         float: right;
         margin-right: 5px;
+    }
+    .logosection li {
+        display: inline-grid;
+        margin-left: 30px !important;
+        font-size: 13px;
+        color: #fff !important;
+    }
+    .logosection li a {
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
     }
 </style>
 <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
@@ -110,28 +117,39 @@
 
         <div class="collapse navbar-collapse" id="navbarsFurni">
             <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-                {{--<li class="nav-item active">
+                <li class="nav-item active">
                     <a class="nav-link" href="{{url('/')}}">Home</a>
                 </li>
-                <li><a class="nav-link" href="{{url('/shop')}}">Shop</a></li>
-                <li><a class="nav-link" href="about.html">About us</a></li>
+                <li><a class="nav-link" href="{{url('/shop')}}">New Arrivals</a></li>
+                {{--<li><a class="nav-link" href="about.html">About us</a></li>
                 <li><a class="nav-link" href="contact.html">Contact us</a></li>--}}
             </ul>
-            <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-                @if(Auth::guard('guest')->check())
-                <li><a class="nav-link" href="{{url('guest_dashboard')}}" style="color: #fff;">{{Auth::guard('guest')->user()->first_name}} {{Auth::guard('guest')->user()->last_name}}</a></li>
+            <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5 logosection">
+              {{--  @if(Auth::guard('guest')->check())
+                <li><a class="nav-link" href="{{url('')}}" style="color: #fff;"></a></li>
                 @else
-                <li><a class="nav-link" href="{{url('login_guest')}}" style="color: #2f2f2f;background: #f9bf29;border-color: #f9bf29;">Login</a></li>
+                <li><a class="nav-link" href="{{url('login_guest')}}" style="color: #2f2f2f;background: #f9bf29;border-color: #f9bf29;"><i class="fa-solid fa-circle-user"></i>Login</a></li>
                 <li><a class="nav-link" href="{{url('registration')}}" style="color: #2f2f2f;background: #f9bf29;border-color: #f9bf29;">Registration</a></li>
+                @endif --}}
+
+                @if(Auth::guard('guest')->check())
+                <li><a href="{{ url('guest_dashboard') }}" uk-tooltip="title: Profile; pos:bottom"><i class="fa-solid fa-circle-user"></i></a>{{Auth::guard('guest')->user()->first_name}} {{Auth::guard('guest')->user()->last_name}}</li>
+                @else
+                <li><a href="{{ url('login_guest') }}" uk-tooltip="title: Profile; pos:bottom"><i class="fa-solid fa-circle-user"></i></a>Account</li>
                 @endif
 
-                
                 @if(Auth::guard('guest')->check())
-                <a class="nav-link" href="@if(Auth::guard('guest')->check()){{url('wishlist')}}/{{Auth::guard('guest')->user()->id}}@endif" style="color: #fff;"><i class="fa-solid fa-heart"></i>
-                    <span id="totalWishList">0</span></a>
-                <a class="nav-link" href="@if(Auth::guard('guest')->check()){{url('add_cart_user')}}/{{Auth::guard('guest')->user()->id}}@endif" style="color: #fff;"><i class="fa-solid fa-cart-shopping"></i>
-                    <span id="totalProductCart">0</span></a>
+
+                <li>
+                    <a href="@if(Auth::guard('guest')->check()){{url('wishlist')}}/{{Auth::guard('guest')->user()->id}}@endif" uk-tooltip="title: Offers Product; pos:bottom"><i class="fa fa-heart"></i><span id="totalWishList">0</span></a>WishList
+                </li>
+
+                <li>
+                    <a href="@if(Auth::guard('guest')->check()){{url('add_cart_user')}}/{{Auth::guard('guest')->user()->id}}@endif" uk-tooltip="title: Cart; pos:bottom" uk-toggle="target: #offcanvas-none"><i class="fa fa-shopping-basket"></i><span id="totalProductCart">0</span></a>MyCart
+                </li>
+
                 @endif
+                
             </ul>
         </div>
     </div>

@@ -60,6 +60,7 @@ Route::post('/submitOrder',[FrontendController::class,'submitOrder']);
 
 Route::get('guest_dashboard',[FrontendController::class,'guest_dashboard']);
 Route::get('check_order',[FrontendController::class,'check_order']);
+Route::get('updateinformation',[FrontendController::class,'updateinformation']);
 
 
 Route::post('productCart',[FrontendController::class,'productCart']);
@@ -113,9 +114,9 @@ Route::resources([
     'slider'=>SliderController::class,
 ]);
 
-Route::get('updateOrderStatus/{id}',[GuestOrderController::class,'updateOrderStatus']);
 
-Route::get('backend/user_order/order_details/{order_id}',[GuestOrderController::class,'OrderDetails']);
+Route::get('backend/user_order/order_details/{order_id}',[GuestOrderController::class,'OrderDetails'])->name('user_order.order_detials');
+Route::post('backend/user_order/update_status',[OrderListController::class,'UpdateStatus']);
 
 Route::get('categorieStatusChange/{id}',[CategorieController::class,'categorieStatusChange']);
 Route::get('categorie_trash_list',[CategorieController::class,'trash_list'])->name('categorie.trash_list');

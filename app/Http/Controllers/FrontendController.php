@@ -220,6 +220,19 @@ class FrontendController extends Controller
             return redirect('/');
         }
     }
+    
+    public function updateinformation()
+    {
+        if(Auth::guard('guest')->check())
+        {
+
+            return view('frontend.guest.updateinformation');
+        }
+        else
+        {
+            return redirect('/');
+        }
+    }
 
     public function productCart(Request $request)
     {
