@@ -27,6 +27,9 @@ return new class extends Migration
             $table->double('shipping_cost',11,2)->nullable();
             $table->double('cuppon_amount',11,2)->nullable();
             $table->string('payment_method')->nullable();
+            $table->tinyInteger('is_payment')->default(0);
+            $table->text('payment_data')->nullable();
+            $table->string('transaction_id')->nullable();
             $table->integer('status')->default('1');
             $table->integer('guest_id')->nullable();
             $table->timestamps();

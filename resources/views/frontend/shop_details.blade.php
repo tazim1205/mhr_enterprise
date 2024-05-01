@@ -58,7 +58,7 @@
                                         <span>3 Reviews</span>
                                     </div> -->
                                     @if($data->discount_amount > 0)
-                                    <div class="product-price-discount"><span>${{$data->discount_amount}}</span><span class="line-through">${{$data->regular_price}}</span></div>
+                                    <div class="product-price-discount"><span>${{$data->regular_price - $data->discount_amount}}</span><span class="line-through">${{$data->regular_price}}</span></div>
                                     @else
                                     <div class="product-price-discount">$0</div>
                                     @endif

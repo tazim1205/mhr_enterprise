@@ -119,57 +119,27 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-7 col-12 mt-4">
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 mt-4">
             <div class="col-md-12 p-4 userdashboard">
-
-                <strong><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Personal Information</strong><br><br>
-                <table class="table table-bordered">
-                    <tbody>
-                        <tr>
-                            <th>Name:</th>
-                            <td>{{ Auth('guest')->user()->first_name }} {{ Auth('guest')->user()->last_name }}</td>
-                        </tr>
-
-                        <tr>
-                            <th>Email:</th>
-                            <td>{{ Auth('guest')->user()->email }}</td>
-                        </tr>
-
-                        <tr>
-                            <th>Phone:</th>
-                            <td>{{ Auth('guest')->user()->mobile }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-
-
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-4">
-                        <div class="dash p-3 bg-primary">
-                            {{--<label>{{ count($data) }}</label><br>--}}
-                            <a href="">Total Order</a>
-                        </div>
+                <strong><i class="fa fa-key" aria-hidden="true"></i>&nbsp;&nbsp;Change Password</strong><br><br>
+                <form class="passreset mt-2" id="btn-submit" method="post" action="{{ url('updatepassword') }}">
+                    @csrf
+                    <div class="form-group col-md-12 mb-3">
+                        <label>Old Password</label>
+                        <input type="Password" name="old_password" autocomplete="off"  class="form-control" required="">
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-4">
-                        <div class="dash p-3 bg-info">
-                            {{--<label>{{ count($pending) }}</label><br>--}}
-                            <a href="">Pending Order</a>
-                        </div>
+                    <div class="form-group col-md-12 mb-3">
+                        <label>New Password</label>
+                        <input type="Password" name="new_password" autocomplete="off"  class="form-control" minlength="8" required="">
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-4">
-                        <div class="dash p-3 bg-info">
-                            {{--<label>{{ count($processing) }}</label><br>--}}
-                            <a href="">Processing Order</a>
-                        </div>
+                    <div class="form-group col-md-12 mb-3">
+                        <label>Confirm Password</label>
+                        <input type="Password" name="confirm_password" autocomplete="off"  class="form-control" minlength="8"  required="">
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-4">
-                        <div class="dash p-3 bg-primary">
-                            {{--<label>{{ count($delivered) }}</label><br>--}}
-                            <a href="">Delivered Order</a>
-                        </div>
+                    <div class="col-md-12 mt-2">
+                        <button type="submit" class="btn btn-dark w-100 p-2 button">Change Password</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
