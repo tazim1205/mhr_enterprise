@@ -21,6 +21,8 @@
 				</div>
 				<form  method="post" action="{{url('register_guest')}}" enctype="multipart/form-data">
                     @csrf
+					<h4><a href="{{('/')}}"><i class="zmdi zmdi-long-arrow-return"></i> Back Home</a></h4>
+					<br><br>
 					<h3>Registration Form</h3>
 					<div class="form-group">
 						<input type="text" name="first_name" id="first_name" placeholder="First Name" class="form-control">
@@ -45,6 +47,11 @@
 					<button type="submit" >Register
 						<i class="zmdi zmdi-arrow-right"></i>
 					</button>
+					<br>
+					<br>
+					<center>
+						<span>Already have an account? <a href="{{url('login_guest')}}" class="text-success">Sign in</a></span>
+					</center>
 				</form>
 			</div>
 		</div>

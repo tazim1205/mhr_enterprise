@@ -249,7 +249,15 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $cat_name = categorie::all();
+        $size = size_setting::orderBy('order_by')->get();
+        $color = color::orderBy('order_by')->get();
+
+        $data = product::find($id);
+        $sub_categorie = sub_categorie::where('cat_id',$data->cat_id)->get();
+        $product_id = $id;
+
+        return view('backend.product.edit',compact('data','cat_name','size','color','sub_categorie','product_id'));
     }
 
     /**
@@ -257,7 +265,77 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = array(
+            'cat_id'=>$request->cat_id,
+            'sub_cat_id'=>$request->sub_cat_id,
+            'product_name_en'=>$request->product_name_en,
+            'product_name_bn'=>$request->product_name_bn,
+            'regular_price'=>$request->regular_price,
+            'discount_amount'=>$request->discount_amount,
+            'min_quantity'=>$request->min_quantity,
+            'short_details'=>$request->short_details,
+            'description'=>$request->description,
+            'information'=>$request->information,
+            'status'=>$request->status,
+        );
+
+        product_size_info::where('product_id',$id)->forceDelete();
+
+        product_color_info::where('product_id',$id)->forceDelete();
+
+        for ($i=0; $i < count($request->size); $i++) 
+        { 
+            product_size_info::create([
+                'product_id'=>$id,
+                'size_id'=>$request->size[$i]
+            ]);
+        }
+
+
+        for ($i=0; $i < count($request->color); $i++) 
+        { 
+            product_color_info::create([
+                'product_id'=>$id,
+                'color_id'=>$request->color[$i],
+            ]);
+        }
+
+        $file = $request->file('image');
+
+        if($file)
+        {
+            $images = product_image_info::where('product_id',$id)->get();
+
+            foreach($images as $i)
+            {
+                $path = public_path().'/backend/img/productImage/'.$i->image;
+                if(file_exists($path))
+                {
+                    unlink($path);
+                }
+            }
+
+            product_image_info::where('product_id',$id)->forceDelete();
+        }
+
+        if($file)
+        {
+            for ($i=0; $i < count($file) ; $i++) 
+            {
+                $imageName[$i] = rand().'.'.$file[$i]->getClientOriginalExtension();
+
+                $file[$i]->move(public_path().'/backend/img/productImage/',$imageName[$i]);
+
+                product_image_info::create([
+                    'product_id'=>$id,
+                    'image'=>$imageName[$i],
+                ]);
+            } 
+        }
+
+        product::find($id)->update($data);
+        Toastr::success(__('product.update_message'), __('common.success'));
+        return redirect()->back();
     }
 
     /**

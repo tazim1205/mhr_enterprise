@@ -31,7 +31,9 @@
 }
 .guest-dashboard-body {
     box-shadow: 0px 1px 1px 1px lightgray;
-    margin-top: 19px;
+    margin-top: 2px;
+    padding: 10px;
+    border-radius: 5px;
 }
 .profile-header{
     border-bottom: 1px solid lightgray;
@@ -105,7 +107,7 @@
 <div class="container" style="padding: 22px;">
     <div class="row">
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-12 mt-4">
-            <div class="col-md-12 p-0 pt-4 pb-4 userdashboard">
+            <div class="col-md-12 p-0 pt-4 userdashboard">
                 <div class="guest-left-dashboard">
                     <div class="guest-header" style="text-align: center;">
                         <img src="{{asset('backend')}}/img/guestUserImage/{{Auth::guard('guest')->user()->image}}" height="100px" width="100px" class="rounded-circle"><br>
@@ -121,15 +123,14 @@
 
         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-7 col-12 mt-4">
             <div class="col-md-12 p-4 userdashboard">
-                <div class="guest-dashboard-body">
-                    <h3 class="text-center">Orders</h3>
-                    <table class="table">
-                        <tr>
-                            <th scope="col">Product</th>
-                            <th scope="col">Size/Color</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Total price</th>
-                        </tr>
+                <strong><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Orders</strong><br><br>
+                <table class="table">
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Size/Color</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total price</th>
+                    </tr>
                     @php
                     $subtotal = 0;
                     $shipping = 0;
@@ -160,7 +161,6 @@
 
                         <td> + {{$shipping}} /-</td>
                     </tr>
-
                     <tr>
                         <td colspan="3">Cuppon Amount</td>
                         @foreach($orders as $s)
@@ -171,7 +171,6 @@
 
                         <td> - {{$cuppon}} /-</td>
                     </tr>
-
                     <tr>
                         <td colspan="3">Total Amount</td>
                     
@@ -179,8 +178,6 @@
                         $totalAmount = $subtotal + $shipping;
                         $totalAmount = $totalAmount - $cuppon;
                         @endphp
-                        
-
                         <td>{{$totalAmount}} /-</td>
                     </tr>
                     <tr>
@@ -188,19 +185,10 @@
                         
                         <td>Pending</td>
                     </tr>
-                    
-                    </table>
-                </div>
+                </table>
             </div>
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
 
 @endsection

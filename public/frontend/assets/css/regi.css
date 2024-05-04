@@ -62,6 +62,18 @@
       font-family: "Poppins-SemiBold";
       text-align: center;
       margin-bottom: 28px; }
+
+    .inner h4 {
+      text-transform: uppercase;
+      text-align: right; 
+      margin-top: -27px; }
+    
+      .inner h4 a {
+        text-decoration: none;
+        border: 1px solid;
+        padding: 7px;
+        color: #000;
+        }
   
   .form-group {
     display: flex; }

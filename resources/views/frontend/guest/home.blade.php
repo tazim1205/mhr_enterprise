@@ -106,7 +106,7 @@
 <div class="container" style="padding: 22px;">
     <div class="row">
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-12 mt-4">
-            <div class="col-md-12 p-0 pt-4 pb-4 userdashboard">
+            <div class="col-md-12 p-0 pt-4 userdashboard">
                 <div class="guest-left-dashboard">
                     <div class="guest-header" style="text-align: center;">
                         <img src="{{asset('backend')}}/img/guestUserImage/{{Auth::guard('guest')->user()->image}}" height="100px" width="100px" class="rounded-circle"><br>
