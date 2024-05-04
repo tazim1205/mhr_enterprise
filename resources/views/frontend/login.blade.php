@@ -21,6 +21,8 @@
 				</div>
                 <form method="post" action="{{url('guestLoginAttempt')}}" >
                     @csrf
+					<h4><a href="{{('/')}}"><i class="zmdi zmdi-long-arrow-return"></i> Back Home</a></h4>
+					<br><br>
 					<h3>Login Form</h3>
 					<div class="form-wrapper">
 						<input type="email" name="email" id="email"placeholder="Email Address" class="form-control">
@@ -33,6 +35,11 @@
 					<button type="submit" >Login
 						<i class="zmdi zmdi-arrow-right"></i>
 					</button>
+					<br>
+					<br>
+					<center>
+						<span>Don't have an account? <a href="{{url('registration')}}" class="text-warning">Sign up</a></span>
+					</center>
 				</form>
 			</div>
 		</div>

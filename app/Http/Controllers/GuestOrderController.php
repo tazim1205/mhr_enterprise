@@ -10,6 +10,7 @@ use App\Models\division_information;
 use App\Models\district_information;
 use App\Models\order_info;
 use App\Models\upazila_information;
+Use Alert;
 
 class GuestOrderController extends Controller
 {
@@ -21,7 +22,7 @@ class GuestOrderController extends Controller
         $this->lang = config ("app.locale");
         $this->sl = 0;
         if ($request->ajax()) {
-            $data = order::orderBy('id','DESC')->where('status','0')->get();
+            $data = order::orderBy('id','DESC')->get();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('sl',function($row){
@@ -96,19 +97,19 @@ class GuestOrderController extends Controller
                         {
                             return '<span class="btn btn-danger">Pending</span>';
                         }
-                        else if($v->status == 1)
+                        elseif($v->status == 1)
                         {
                             return '<span class="btn btn-warning">Processing</span>';
                         }
-                        else if($v->status == 2)
+                        elseif($v->status == 2)
                         {
                             return '<span class="btn btn-primary">In Delivery</span>';
                         }
-                        else if($v->status == 3)
+                        elseif($v->status == 3)
                         {
                             return '<span class="btn btn-info">Completed</span>';
                         }
-                        else if($v->status == 4)
+                        elseif($v->status == 4)
                         {
                             return '<span class="btn btn-danger">Canceled</span>';
                         }
@@ -187,7 +188,7 @@ class GuestOrderController extends Controller
 
     public function UpdateStatus(Request $request)
     {
-        $order = Order::find($request->order_id);
+        $order = order::find($request->order_id);
         if(!empty($order))
         {
             $order->status = $request->status;

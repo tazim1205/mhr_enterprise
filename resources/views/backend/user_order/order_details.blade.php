@@ -174,7 +174,6 @@
                                                     <tr>
                                                         <th>Order Id</th>
                                                         <th>Transaction_id</th>
-                                                        <th>Coupon Code</th>
                                                         <th>Payment Method</th>
                                                         <th>Shipping Cost</th>
                                                         <th>Order Time</th>
@@ -186,14 +185,11 @@
                                                     <tr>
                                                         <td>#{{ $order->id }}</td>
                                                         <td class="text-center">{{ $order->transaction_id ? $order->transaction_id : '-' }}</td>
-                                                        <td>
-                                                            <span style="text-align: center;display:block;">{{ $order->cuppon_code ? $order->cuppon_code : '-' }}</span>
-                                                        </td>
                                                         <td style="text-align: center;">
                                                             <div class="badge rounded-pill text-info bg-light-info p-2 text-uppercase px-3"><i class="bx bxs-circle me-1"></i>{{ $order->payment_method }}</div>
                                                         </td>
                                                         <td>
-                                                            {{ $order->shipping_charge }}
+                                                            {{ $order->shipping_cost }}
                                                         </td>
                                                         <td>
                                                             {{ $timeAgo }} </td>
@@ -217,7 +213,25 @@
                                                         <th>Current Status</th>
                                                         <th style="text-align: center">
                                                             <div class="badge rounded-pill text-secondary bg-light-secondary p-2 text-uppercase px-3 pending">
-                                                                <i class="bx bxs-circle me-1"></i>Pending
+                                                                <i class="bx bxs-circle me-1"></i>
+                                                                @if($order->status == 0)
+                                                                <span class="text-danger">Pending</span>
+                                                                @endif
+                                                                @if($order->status == 1)
+                                                                <span class="text-warning">Processing</span>
+                                                                @endif
+
+                                                                @if($order->status == 2)
+                                                                <span class="text-primary">In Delivery</span>
+                                                                @endif
+
+                                                                @if($order->status == 3)
+                                                                <span class="text-info">Completed</span>
+                                                                @endif
+
+                                                                @if($order->status == 4)
+                                                                <span class="text-danger">Canceled</span>
+                                                                @endif
                                                             </div>
                                                         </th>
                                                     </tr>
@@ -225,8 +239,8 @@
                                             </table>
 
                                             <form id="status_form" method="post" style="padding: 0">
-                                            <input type="hidden" name="order_id" value="{{ $order->id }}">
-                                                <select name="status" id="status" class="select2 mb-1">
+                                                <input type="hidden" name="order_id" value="{{ $order->id }}">
+                                                <select name="status" id="status" class="select2 mb-1 form-control">
                                                     <option value="">Select Order Status</option>
                                                     <option value="1" @if($order->status == 1) selected @endif>Pending</option>
                                                     <option value="2" @if($order->status == 2) selected @endif>Processing</option>
@@ -234,7 +248,9 @@
                                                     <option value="4" @if($order->status == 4) selected @endif>Completed</option>
                                                     <option value="5" @if($order->status == 5) selected @endif>Canceled</option>
                                                 </select>
-                                                <input type="submit" name="status_btn" id="status_btn" value="Change Status">
+                                                <div class="col-12 mt-4" style="text-align: right">
+                                                    <button type="submit" name="status_btn" id="status_btn" class="btn  btn-success"> <i class="fa fa-save"></i> @lang('common.update')</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -257,8 +273,11 @@
     $(document).on('submit','#status_form',function(e){
         e.preventDefault();
         $.ajax({
+            headers :{
+            'X-CSRF-TOKEN' : '{{ csrf_token() }}'
+            },
             type : 'POST',
-            url : '{{ url("admin/order_list/update_status") }}',
+            url : '{{ route("user_order.update_status") }}',
             data : $(this).serialize(),
             success : function(response)
             {
