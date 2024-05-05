@@ -121,8 +121,8 @@
                     <a class="nav-link" href="{{url('/')}}">Home</a>
                 </li>
                 <li><a class="nav-link" href="{{url('/shop')}}">New Arrivals</a></li>
-                {{--<li><a class="nav-link" href="about.html">About us</a></li>
-                <li><a class="nav-link" href="contact.html">Contact us</a></li>--}}
+                <li><a class="nav-link" href="{{url('/about')}}">About us</a></li>
+                <li><a class="nav-link" href="{{url('/contact')}}">Contact us</a></li>
             </ul>
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5 logosection">
               {{--  @if(Auth::guard('guest')->check())
