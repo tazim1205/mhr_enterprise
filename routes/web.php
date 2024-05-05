@@ -25,7 +25,9 @@ use App\Http\Controllers\TrendController;
 use App\Http\Controllers\AddProductToTrendController;
 use App\Http\Controllers\GuestOrderController;
 use App\Http\Controllers\SliderController;
-// fronted 
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\AboutUsController;
+// frontend 
 use App\Http\Controllers\FrontendController;
 
 
@@ -40,7 +42,7 @@ use App\Http\Controllers\FrontendController;
 |
 */
 
-// fronted 
+// frontend 
 Route::controller(FrontendController::class)->group(function () {
     Route::get('/', 'index');    
     Route::get('/shop', 'shop');
@@ -99,6 +101,8 @@ Route::get('getWishList',[FrontendController::class,'getWishList']);
 Route::get('WishListDelete/{id}',[FrontendController::class,'WishListDelete']);
 
 Route::resources([
+    'about_us' => AboutUsController::class,
+    'messages' => MessageController::class,
     'categorie'    => CategorieController::class,
     'sub_categorie'    => SubcategorieController::class,
     'brand'    => BrandController::class,
@@ -167,7 +171,7 @@ Route::get('GetDistrict/{division_id}',[ShippingController::class,'GetDistrict']
 Route::get('GetUpazila/{district_id}',[ShippingController::class,'GetUpazila']);
 Route::get('shippingStatusChange/{id}',[ShippingController::class,'shippingStatusChange']);
 
-// fronted end 
+// frontend end 
 
 // Route::get('/', function () {
     //return date('h:i:s a');

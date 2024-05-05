@@ -24,6 +24,8 @@ use App\Models\order;
 use App\Models\order_info;
 use App\Models\wishlist;
 use App\Models\slider;
+use App\Models\message;
+use App\Models\about_us;
 use Session;
 use Hash;
 use Auth;
@@ -36,6 +38,7 @@ class FrontendController extends Controller
 {
     public function index()
     {
+
         return view("frontend.index");
     }
     public function shop()
@@ -49,7 +52,9 @@ class FrontendController extends Controller
     }
     public function about()
     {
-        return view("frontend.about");
+        $about_us = about_us::find(1);
+
+        return view("frontend.about",compact('about_us'));
     }
     public function single_product()
     {
@@ -642,5 +647,26 @@ class FrontendController extends Controller
 
         return redirect('guest_dashboard');
 
+    }
+
+    public function sendMessage(Request $request)
+    {
+        $data = array(
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'phone'=>$request->phone,
+            'message'=>$request->message,
+        );
+       
+        $insert = message::create($data);
+       
+        if($insert)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
     }
 }
