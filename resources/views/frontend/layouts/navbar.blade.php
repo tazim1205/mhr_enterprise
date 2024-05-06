@@ -37,7 +37,7 @@
         line-height: 40px;
         border-bottom: #b5b5b5 1px solid;
         border-right: #b5b5b5 1px solid;
-        width: 100%;
+        width: 130%;
     }
 
     .child li a {
@@ -83,7 +83,7 @@
     <div class="container">
         <a class="navbar-brand" href="{{url('/')}}">MHR<span>.</span></a>
         
-        <ul class="multilevel-dropdown-menu" style="margin-left: 40px;width: 19em;">
+        <ul class="multilevel-dropdown-menu">
             <li class="parent"><a href="#">Category</a>
             
             <ul class="child">

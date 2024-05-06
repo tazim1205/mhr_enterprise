@@ -206,7 +206,11 @@ textarea:focus {
   100%{transform: translateY(-8rem) scale(0.3, 0.5);}
 }
 
-
+@media (max-width: 480px) {
+  .wrapper {
+  width: 20rem !important;
+}
+}
 </style>
 
     <!-- Navbar Start -->
