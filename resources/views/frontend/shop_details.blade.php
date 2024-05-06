@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- Navbar Start -->
         @include('frontend.layouts.navbar')
     <!-- Navbar End -->
@@ -16,29 +16,29 @@
                         <h2>Product Details</h2>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <div id="product-carousel" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner border">
-                                    <div class="carousel-item active text-center">
-                                        <img class="" style="width: 400px;height:450px;" src="{{asset('backend/img/productImage')}}/{{$activeImage->image}}" alt="Image">
+                        <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12 p-4">
+                            <div class="simpleLens-gallery-container" id="demo-1">
+                                <div class="simpleLens-container border" style="width: 100%;">
+                                    <div class="simpleLens-big-image-container " uk-lightbox>
+                                        <a href="{{asset('backend/img/productImage')}}/{{$activeImage->image}}" class="simpleLens-lens-image"
+                                        data-lens-image="{{asset('backend/img/productImage')}}/{{$activeImage->image}}">
+                                        <img src="{{asset('backend/img/productImage')}}/{{$activeImage->image}}"
+                                        class="simpleLens-big-image p-2">
+                                        </a>
                                     </div>
-                                @if($image)
-                                @foreach($image as $i)
-                                    <div class="carousel-item text-center">
-                                        <img class="justify-content-center" style="width: 400px;height:450px" src="{{asset('backend/img/productImage')}}/{{$i->image}}" alt="Image">
-                                    </div>
-                                @endforeach
-                                @endif
                                 </div>
-                                <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
-                                    <i class="fa fa-2x fa-angle-left text-dark"></i>
-                                </a>
-                                <a class="carousel-control-next" href="#product-carousel" data-slide="next">
-                                    <i class="fa fa-2x fa-angle-right text-dark"></i>
-                                </a>
+                                <div class="uk-position-relative uk-visible-toggle uk-light mt-5" tabindex="-1" uk-slider uk-lightbox="animation: fade">
+                                    <ul class="uk-slider-items uk-child-width-1-3 uk-child-width-1-3@m uk-grid">
+                                        @if(isset($image))
+                                        @foreach($image as $i)
+                                        <li><label><a class="uk-inline" href="{{asset('backend/img/productImage')}}/{{$i->image}}"><img src="{{asset('backend/img/productImage')}}/{{$i->image}}" alt=""></a></label></li>
+                                        @endforeach
+                                        @endif
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-xl-7 col-lg-7 col-md-6 col-sm-12 col-12">
                             <div class="product-dtl">
                                 <div class="product-info">
                                     <div class="product-name">@if(config('app.locale') == 'en'){{$data->product_name_en}}@elseif(config('app.locale') == 'bn'){{$data->product_name_bn}}@endif</div>
@@ -58,7 +58,7 @@
                                         <span>3 Reviews</span>
                                     </div> -->
                                     @if($data->discount_amount > 0)
-                                    <div class="product-price-discount"><span>${{$data->regular_price - $data->discount_amount}}</span><span class="line-through">${{$data->regular_price}}</span></div>
+                                    <div class="product-price-discount"><span class="text-danger">${{$data->regular_price - $data->discount_amount}}</span><span class="line-through">${{$data->regular_price}}</span></div>
                                     @else
                                     <div class="product-price-discount">$0</div>
                                     @endif
@@ -121,58 +121,28 @@
                         </div>
                     </div>
                     <div class="product-info-tabs">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <ul class="nav nav-tabs">
                             <li class="nav-item">
-                                <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
+                                <button class="w3-bar-item w3-button" onclick="openCity('London')" style="background: #fff;">Short Details</button>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Reviews (0)</a>
+                                <button class="w3-bar-item w3-button" onclick="openCity('Paris')">Description</button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="w3-bar-item w3-button" onclick="openCity('Tokyo')">Information</button>
                             </li>
                         </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-                            {{$data->description}}
-                            </div>
-                            <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-                                <div class="review-heading">REVIEWS</div>
-                                <p class="mb-20">There are no reviews yet.</p>
-                                <form class="review-form">
-                                    <div class="form-group">
-                                        <label>Your rating</label>
-                                        <div class="reviews-counter">
-                                            <div class="rate">
-                                                <input type="radio" id="star5" name="rate" value="5" />
-                                                <label for="star5" title="text">5 stars</label>
-                                                <input type="radio" id="star4" name="rate" value="4" />
-                                                <label for="star4" title="text">4 stars</label>
-                                                <input type="radio" id="star3" name="rate" value="3" />
-                                                <label for="star3" title="text">3 stars</label>
-                                                <input type="radio" id="star2" name="rate" value="2" />
-                                                <label for="star2" title="text">2 stars</label>
-                                                <input type="radio" id="star1" name="rate" value="1" />
-                                                <label for="star1" title="text">1 star</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Your message</label>
-                                        <textarea class="form-control" rows="10"></textarea>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="text" name="" class="form-control" placeholder="Name*">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="text" name="" class="form-control" placeholder="Email Id*">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button class="round-black-btn">Submit Review</button>
-                                </form>
-                            </div>
+                        <div id="London" class="w3-container city" style="background: rgb(255, 255, 255);">
+                            <h2>Short Details</h2>
+                            <p>{{$data->short_details}}</p>
+                        </div>
+                        <div id="Paris" class="w3-container city" style="display:none; background: rgb(255, 255, 255);">
+                            <h2>Description</h2>
+                            <p>{{$data->description}}</p>
+                        </div>
+                        <div id="Tokyo" class="w3-container city" style="display:none; background: rgb(255, 255, 255);">
+                            <h2>Information</h2>
+                            <p>{{$data->information}}</p>
                         </div>
                     </div>
                 </div>
@@ -281,6 +251,17 @@
             }
         })
     </script>
+
+<script>
+    function openCity(cityName) {
+    var i;
+    var x = document.getElementsByClassName("city");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+    }
+    document.getElementById(cityName).style.display = "block";  
+    }
+</script>
 
 @endpush
 

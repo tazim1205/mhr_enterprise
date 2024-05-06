@@ -20,33 +20,26 @@
                     <div class="container">
                         <div class="row justify-content-between">
                             <div class="col-lg-12">
-                                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                                    <div class="carousel-indicators">
-                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                    </div>
-                                    <div class="carousel-inner">
+                                <div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slideshow="min-height: 300; max-height: 400; animation: push">
+                                    <div class="uk-slideshow-items">
                                         @if(isset($slider))
                                         @foreach($slider as $key => $s)
-                                        <div class="carousel-item @if(isset($key)) active @endif">
-                                            <img src="{{asset('/Backend/img/slider')}}/{{$s->image}}" class="d-block w-100" alt="...">
-                                            <div class="carousel-caption d-none d-md-block">
-                                                <h3 style="color: #fff;">@if(config('app.locale') == 'en'){{$s->title}}@elseif(config('app.locale') == 'bn'){{$s->title_bn}}@endif</h3>
-                                                <p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
-                                            </div>
+                                        <div>
+                                            <img src="{{asset('/Backend/img/slider')}}/{{$s->image}}" class="w-60 h-60" alt="" uk-cover>
+                                            {{--<div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center">
+                                                <h3 class="uk-margin-remove">@if(config('app.locale') == 'en'){{$s->title}}@elseif(config('app.locale') == 'bn'){{$s->title_bn}}@endif</h3>
+                                                <p class="uk-margin-remove"><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+                                            </div>--}}
                                         </div>
                                         @endforeach
                                         @endif
                                     </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </button>
+
+                                    <div class="uk-light">
+                                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slideshow-item="previous"></a>
+                                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slideshow-item="next"></a>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
