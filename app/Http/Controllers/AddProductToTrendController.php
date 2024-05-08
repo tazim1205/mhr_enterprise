@@ -104,7 +104,7 @@ class AddProductToTrendController extends Controller
 
                         if(Auth::user()->can('Menu edit'))
                         {
-                            $edit_btn = '<a class="dropdown-item" href="'.route('color.edit',$row->id).'"><i class="fa fa-edit"></i> '.__('common.edit').'</a>';
+                            $edit_btn = '<a class="dropdown-item" href="'.route('add_product_to_trend.edit',$row->id).'"><i class="fa fa-edit"></i> '.__('common.edit').'</a>';
                         }
                         else
                         {
@@ -112,7 +112,7 @@ class AddProductToTrendController extends Controller
                         }
                         if(Auth::user()->can('Menu destroy'))
                         {
-                            $destroy_btn = '<form action="'.route('color.destroy',$row->id).'" id="deleteForm" method="post">
+                            $destroy_btn = '<form action="'.route('add_product_to_trend.destroy',$row->id).'" id="deleteForm" method="post">
                             '.csrf_field().'
                             '.method_field('DELETE').'
                             <button onclick="return Sure()" id="" type="submit" class="text-danger dropdown-item" href="#"><i class="fa fa-trash"></i> '.__('common.destroy').'</button>
@@ -201,7 +201,13 @@ class AddProductToTrendController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = add_product_to_trend::find($id);
+
+        $trend_name = trend::all();
+
+        $categorie = categorie::all();
+
+        return view('backend.add_product_to_trend.edit',compact('data','trend_name','categorie'));
     }
 
     /**
@@ -209,7 +215,20 @@ class AddProductToTrendController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        trend_product_info::where('cat_id',$request->cat_id)->where('trend_id',$request->trend_id)->delete();
+
+        for ($i=0; $i < count($request->product); $i++) 
+        {
+                
+                trend_product_info::create([
+                    'cat_id'=>$request->cat_id,
+                    'trend_id'=>$request->trend_id,
+                    'product_id'=>$request->product[$i],
+                ]);
+            
+        }
+        Toastr::success(__('add_product_to_trend.update_message'), __('common.success'));
+        return redirect()->back();
     }
 
     /**
@@ -217,7 +236,25 @@ class AddProductToTrendController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        add_product_to_trend::find($id)->delete();
+        Toastr::success(__('add_product_to_trend.delete_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function trendproductStatusChange($id)
+    {
+       $check = brand::find($id);
+
+       if($check->status == 1)
+       {
+        brand::find($id)->update(['status'=>0]);
+       }
+       else
+       {
+        brand::find($id)->update(['status'=>1]);
+       }
+
+       return 1;
     }
 
     public function GetSelectProduct($cat_id)

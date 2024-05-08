@@ -90,6 +90,52 @@
                 </div>
             </div>
             <!-- End Category Wise Product Section -->
+            
+            <!-- Start All Product Section -->
+            <div class="untree_co-section product-section before-footer-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12 mb-5 mb-3 text-center">
+                            <h2 class="mb-4 section-title">All Product</h2>
+                        </div>
+
+                        <!-- Start Product -->
+                        
+                        @foreach($data as $p)
+
+                        @php 
+                        $productImage = DB::table('product_image_infos')->where('product_id',$p->id)->first();
+                        @endphp
+                        <!-- Start Product -->
+                        <div class="col-12 col-md-3 col-lg-3 mb-5">
+                            <div class="product-card">
+                                <!-- <div class="badge">Hot</div> -->
+                                <div class="product-tumb">
+                                    <a href="{{url('shop_details')}}/{{$p->id}}">
+                                        <img src="{{asset('backend/img/productImage')}}/{{$productImage->image}}" alt="">
+                                    </a>
+                                </div>
+                                <div class="product-details">
+                                    <h4><a href="{{url('shop_details')}}/{{$p->id}}">@if(config('app.locale') == 'en'){{$p->product_name_en}}@elseif(config('app.locale') == 'bn'){{$p->product_name_bn}}@endif</a></h4>
+                                    <div class="product-bottom-details">
+                                        @if($p->discount_amount > 0)
+                                        <div class="product-price"><small> ${{$p->regular_price}}</small> ${{$p->regular_price - $p->discount_amount}}</div>
+                                        @else 
+                                        <div class="product-price">${{$p->regular_price}}</div>
+                                        @endif
+                                        <div class="product-links">
+                                            <a href="{{url('shop_details')}}/{{$p->id}}">View Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Product -->
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            <!-- End All Product Section -->
 
             <!-- Start Product Section -->
             @php
@@ -123,10 +169,12 @@
                         <div class="col-12 col-md-3 col-lg-3 mb-5">
                             <div class="product-card">
                                 <div class="product-tumb">
-                                    <img src="{{asset('backend/img/productImage')}}/{{$subImageName->image}}" alt="">
+                                    <a href="{{url('shop_details')}}/{{$product->id}}">
+                                        <img src="{{asset('backend/img/productImage')}}/{{$subImageName->image}}" alt="">
+                                    </a>
                                 </div>
                                 <div class="product-details">
-                                    <h4><a href="#">@if(config('app.locale') == 'en'){{$product->product_name_en}}@elseif(config('app.locale') == 'bn'){{$product->product_name_bn}}@endif</a></h4>
+                                    <h4><a href="{{url('shop_details')}}/{{$product->id}}">@if(config('app.locale') == 'en'){{$product->product_name_en}}@elseif(config('app.locale') == 'bn'){{$product->product_name_bn}}@endif</a></h4>
                                     <div class="product-bottom-details">
                                         @if($product->discount_amount > 0)
                                         <div class="product-price"><small> ${{$product->regular_price}}</small> ${{$product->regular_price - $product->discount_amount}}</div>

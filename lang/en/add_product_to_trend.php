@@ -5,6 +5,7 @@ return array(
     'trash_title' => 'All Deleted Product to trends',
     'create_new' => 'New Product to trend',
     'deleted_list' => 'Deleted Product to trends',
+    'edit_title' => 'Edit Product to trends',
     'view' => 'All Product to trend',
     'select_parent'=>'Select Parent',
     'product_trend_index'=>'All Trend Products',

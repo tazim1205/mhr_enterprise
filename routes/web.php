@@ -100,6 +100,10 @@ Route::get('/wishListToCart/{id}',[FrontendController::class,'wishListToCart']);
 Route::get('getWishList',[FrontendController::class,'getWishList']);
 Route::get('WishListDelete/{id}',[FrontendController::class,'WishListDelete']);
 
+Route::post('/Searchproduct',[ProductController::class,'Search_product']);
+Route::get('/searchproducts',[FrontendController::class,'searchproducts']);
+Route::post('/search-product-list',[FrontendController::class,'search_Product_List']);
+
 Route::resources([
     'about_us' => AboutUsController::class,
     'messages' => MessageController::class,
@@ -123,34 +127,28 @@ Route::get('backend/user_order/order_details/{order_id}',[GuestOrderController::
 Route::post('backend/user_order/update_status',[GuestOrderController::class,'UpdateStatus'])->name('user_order.update_status');
 
 Route::get('categorieStatusChange/{id}',[CategorieController::class,'categorieStatusChange']);
-Route::get('categorie_trash_list',[CategorieController::class,'trash_list'])->name('categorie.trash_list');
-Route::get('categorie_restore/{id}',[CategorieController::class,'restore'])->name('categorie.restore');
-Route::get('categorie_delete/{id}',[CategorieController::class,'delete'])->name('categorie.delete');
+Route::get('retrive_categorie/{id}',[CategorieController::class,'retrive_categorie']);
+Route::get('categorie_per_delete/{id}',[CategorieController::class,'categorie_per_delete']);
 
 Route::get('subcategorieStatusChange/{id}',[SubcategorieController::class,'subcategorieStatusChange']);
-Route::get('subcategorie_trash_list',[SubcategorieController::class,'trash_list'])->name('subcategorie.trash_list');
-Route::get('subcategorie_restore/{id}',[SubcategorieController::class,'restore'])->name('subcategorie.restore');
-Route::get('subcategorie_delete/{id}',[SubcategorieController::class,'delete'])->name('subcategorie.delete');
+Route::get('retrive_subcategorie/{id}',[SubcategorieController::class,'retrive_subcategorie']);
+Route::get('subcategorie_per_delete/{id}',[SubcategorieController::class,'subcategorie_per_delete']);
 
 Route::get('brandStatusChange/{id}',[BrandController::class,'brandStatusChange']);
-Route::get('brand_trash_list',[BrandController::class,'trash_list'])->name('brand.trash_list');
-Route::get('brand_restore/{id}',[BrandController::class,'restore'])->name('brand.restore');
-Route::get('brand_delete/{id}',[BrandController::class,'delete'])->name('brand.delete');
+Route::get('retrive_brand/{id}',[BrandController::class,'retrive_brand']);
+Route::get('brand_per_delete/{id}',[BrandController::class,'brand_per_delete']);
 
 Route::get('sizeStatusChange/{id}',[SizeController::class,'sizeStatusChange']);
-Route::get('size_setting_trash_list',[SizeController::class,'trash_list'])->name('size_setting.trash_list');
-Route::get('size_setting_restore/{id}',[SizeController::class,'restore'])->name('size_setting.restore');
-Route::get('size_setting_delete/{id}',[SizeController::class,'delete'])->name('size_setting.delete');
+Route::get('retrive_size/{id}',[SizeController::class,'retrive_size']);
+Route::get('size_per_delete/{id}',[SizeController::class,'size_per_delete']);
 
 Route::get('colorStatusChange/{id}',[ColorController::class,'colorStatusChange']);
-Route::get('color_trash_list',[ColorController::class,'trash_list'])->name('color.trash_list');
-Route::get('color_restore/{id}',[ColorController::class,'restore'])->name('color.restore');
-Route::get('color_delete/{id}',[ColorController::class,'delete'])->name('color.delete');
+Route::get('retrive_color/{id}',[ColorController::class,'retrive_color']);
+Route::get('color_per_delete/{id}',[ColorController::class,'color_per_delete']);
 
 Route::get('pricerangeStatusChange/{id}',[PricerangeController::class,'pricerangeStatusChange']);
-Route::get('price_range_trash_list',[PricerangeController::class,'trash_list'])->name('price_range.trash_list');
-Route::get('price_range_restore/{id}',[PricerangeController::class,'restore'])->name('price_range.restore');
-Route::get('price_range_delete/{id}',[PricerangeController::class,'delete'])->name('price_range.delete');
+Route::get('retrive_price_range/{id}',[PricerangeController::class,'retrive_price_range']);
+Route::get('price_range_per_delete/{id}',[PricerangeController::class,'price_range_per_delete']);
 
 Route::get('cupponStatusChange/{id}',[CupponController::class,'cupponStatusChange']);
 Route::get('retrive_cuppon/{id}',[CupponController::class,'retrive_cuppon']);
@@ -161,6 +159,7 @@ Route::get('retrive_trend/{id}',[TrendController::class,'retrive_trend']);
 Route::get('trend_per_delete/{id}',[TrendController::class,'trend_per_delete']);
 
 Route::get('GetSelectProduct/{cat_id}',[AddProductToTrendController::class,'GetSelectProduct']);
+Route::get('trendproductStatusChange/{id}',[AddProductToTrendController::class,'trendproductStatusChange']);
 
 Route::get('GetSubCategorie/{cat_id}',[ProductController::class,'GetSubCategorie']);
 Route::get('productStatusChange/{id}',[ProductController::class,'productStatusChange']);
@@ -170,6 +169,8 @@ Route::get('product_per_delete/{id}',[ProductController::class,'product_per_dele
 Route::get('GetDistrict/{division_id}',[ShippingController::class,'GetDistrict']);
 Route::get('GetUpazila/{district_id}',[ShippingController::class,'GetUpazila']);
 Route::get('shippingStatusChange/{id}',[ShippingController::class,'shippingStatusChange']);
+Route::get('retrive_shipping/{id}',[ShippingController::class,'retrive_shipping']);
+Route::get('shipping_per_delete/{id}',[ShippingController::class,'shipping_per_delete']);
 
 // frontend end 
 

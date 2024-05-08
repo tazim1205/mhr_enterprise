@@ -160,7 +160,23 @@ class CategorieController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        categorie::find($id)->delete();
+        Toastr::success(__('categorie.delete_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function retrive_categorie($id)
+    {
+        categorie::where('id',$id)->withTrashed()->restore();
+        Toastr::success(__('categorie.retrive_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function categorie_per_delete($id)
+    {
+        categorie::where('id',$id)->withTrashed()->forceDelete();
+        Toastr::success(__('categorie.permenant_delete'), __('common.success'));
+        return redirect()->back();
     }
 
     public function categorieStatusChange($id)

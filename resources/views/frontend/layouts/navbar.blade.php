@@ -77,6 +77,35 @@
         font-size: 20px;
         text-align: center;
     }
+    
+
+    .search-container button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 5px;
+        margin-right: 16px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .search-container button:hover {
+        background: #ccc;
+    }
+    
+    .search-container input[type=text] {
+        padding: 6px;
+        margin-top: 5px;
+        font-size: 17px;
+        border: none;
+    }
+    
+    @media screen and (max-width: 480px) {
+        .search-container form{
+            margin-left: 50px;
+        }
+}
 </style>
 <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
@@ -114,6 +143,18 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        {{--<div class="search-container">
+            <form method="get" action="{{ url('/searchproducts') }}">
+            @csrf
+            
+                <input type="text" id="searchbox"  name="search" placeholder="What are you looking for?"  autocomplete="off" required="" onkeyup="searchproducts();" required="">
+                <button type="submit" ><i class="fa fa-search"></i></button>
+                
+            </form>
+            <div id="searchdata"></div>
+        </div>--}}
+
+        
 
         <div class="collapse navbar-collapse" id="navbarsFurni">
             <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
@@ -201,5 +242,42 @@
             }
         });
     }
+
+</script>
+
+<script type="text/javascript">
+
+  function searchproducts()
+
+  {
+
+    var search = $("#searchbox").val();
+
+    if(search != '')
+
+    {
+
+      $.ajax({
+        headers: { 'X-CSRF-TOKEN': "{{ csrf_token() }}" },
+        url: '{{ url("Searchproduct") }}',
+        type: 'POST',
+        data: {search:search},
+        success: function(data)
+        {
+          $('#searchdata').html(data);
+
+        }
+
+      })
+    }
+
+    else
+
+    {
+      $('#searchdata').html('');
+
+    }
+
+  }
 
 </script>

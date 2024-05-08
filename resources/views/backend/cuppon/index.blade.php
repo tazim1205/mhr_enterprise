@@ -1,5 +1,8 @@
 @extends('backend.layouts.master')
 @section('body')
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
 <main class="content">
     <div class="container-fluid p-0">
 
@@ -25,37 +28,79 @@
     @lang('cuppon.create_new')
     @endslot
 
-    
-    {{-- for deleted list index --}}
-    @slot('deleted_list_btn_name')
-    @lang('cuppon.deleted_list')
-    @endslot
-
-    @slot('deleted_list_route')
-    create.trash_list
-    @endslot
-
-   
-
     @endcomponent
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <table id="datatables-reponsive" class="table table-striped" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>@lang('common.sl')</th>
-                                    <th>@lang('cuppon.cuppon_code')</th>
-                                    <th>@lang('cuppon.discount_amount')</th>
-                                    <th>@lang('common.status')</th>
-                                    <th>@lang('common.actions')</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                        <ul class="nav nav-tabs nav-bordered mb-3">
+                            <li class="nav-item">
+                                <a href="#users-tab-all" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
+                                    @lang('common.all')
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#users-tab-deleted" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
+                                    @lang('common.deleted_list')
+                                </a>
+                            </li>
+                        </ul> <!-- end nav-->
+                        <div class="tab-content">
+                            <div class="tab-pane show active" id="users-tab-all">
+                                <table id="datatables-reponsive" class="table table-striped" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>@lang('common.sl')</th>
+                                            <th>@lang('cuppon.cuppon_code')</th>
+                                            <th>@lang('cuppon.discount_amount')</th>
+                                            <th>@lang('common.status')</th>
+                                            <th>@lang('common.actions')</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                            </tbody>
-                        </table>
+                                    </tbody>
+                                </table>
+                            </div> <!-- end all-->
+                            <div class="tab-pane" id="users-tab-deleted">
+                                @php
+                                use App\Models\cuppon;
+                                $data=  cuppon::onlyTrashed()->get();
+                                $sl=1;
+                                @endphp
+
+                                <table id="alternative-page-datatable" class="table table-striped dt-responsive nowrap w-100">
+                                    <thead>
+                                        <tr>
+                                            <th>@lang('common.sl')</th>
+                                            <th>@lang('cuppon.cuppon_code')</th>
+                                            <th>@lang('cuppon.discount_amount')</th>
+                                            <th>@lang('common.actions')</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @if($data)
+                                        @foreach ($data as $v)
+                                        <tr>
+                                            <td>{{$sl++}}</td>
+                                            <td>
+                                                {{$v->cuppon_code}}
+                                            </td>
+                                            <td>
+                                                {{$v->discount_amount}}
+                                            </td>
+                                            <td>
+                                                <a onclick="return confirmation();" class="btn btn-warning btn-sm" href="{{url('retrive_cuppon')}}/{{$v->id}}"><i class="fa fa-repeat"></i></a>
+                                                <a onclick="return confirmation();" class="btn btn-danger btn-sm" href="{{url('cuppon_per_delete')}}/{{$v->id}}"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                        @endif
+                                    </tbody>
+                                </table>
+                            </div> <!-- end deleted-->
+                        </div> <!-- end tab-content-->
                     </div>
                 </div>
             </div>
@@ -64,6 +109,8 @@
 </main>
 
 @push('footer_script')
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {

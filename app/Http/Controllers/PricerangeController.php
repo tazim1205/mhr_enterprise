@@ -156,7 +156,23 @@ class PricerangeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        price_range::find($id)->delete();
+        Toastr::success(__('price_range.delete_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function retrive_price_range($id)
+    {
+        price_range::where('id',$id)->withTrashed()->restore();
+        Toastr::success(__('price_range.retrive_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function price_range_per_delete($id)
+    {
+        price_range::where('id',$id)->withTrashed()->forceDelete();
+        Toastr::success(__('price_range.permenant_delete'), __('common.success'));
+        return redirect()->back();
     }
 
     public function PriceRangeStatusChange($id)

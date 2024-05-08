@@ -160,7 +160,23 @@ class ColorController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        color::find($id)->delete();
+        Toastr::success(__('color.delete_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function retrive_color($id)
+    {
+        color::where('id',$id)->withTrashed()->restore();
+        Toastr::success(__('color.retrive_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function color_per_delete($id)
+    {
+        color::where('id',$id)->withTrashed()->forceDelete();
+        Toastr::success(__('color.permenant_delete'), __('common.success'));
+        return redirect()->back();
     }
 
     public function colorStatusChange($id)
