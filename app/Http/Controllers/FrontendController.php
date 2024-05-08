@@ -38,12 +38,12 @@ class FrontendController extends Controller
 {
     public function index()
     {
-
-        return view("frontend.index");
+        $data = product::all();
+        return view("frontend.index",compact('data'));
     }
     public function shop()
     {
-        $data = product::all();
+        $data = product::orderBy('id','DESC')->get();
         return view("frontend.shop",compact('data'));
     }
     public function cart()
@@ -668,5 +668,31 @@ class FrontendController extends Controller
         {
             return 0;
         }
+    }
+
+    public function searchproducts(Request $request)
+
+    {
+        $search  = $request->search;
+    
+        $searchproducts = product::where('product_name_en', 'like', '%' . $search . '%')
+        ->where('status', '1')
+        ->paginate(18);
+        
+        return view('frontend.searchproducts', compact('searchproducts'));
+    }
+    
+    public function search_Product_List(Request $request)
+    {
+        $search  = $request->searchtext;
+        $cate_id  = $request->cate_id;
+    
+        $searchproducts = product::where('product_name_en', 'like', '%' . $search . '%')
+        ->orwhere('product_id', 'like', '%' . $search . '%')
+        ->where('status', '1')
+        ->where('category_id', $cate_id)
+        ->get();
+    
+        return view('frontend.home_search_Product_List', compact('searchproducts'));
     }
 }

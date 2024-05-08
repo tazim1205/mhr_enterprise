@@ -160,7 +160,23 @@ class SizeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        size_setting::find($id)->delete();
+        Toastr::success(__('size_setting.delete_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function retrive_size($id)
+    {
+        size_setting::where('id',$id)->withTrashed()->restore();
+        Toastr::success(__('size_setting.retrive_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function size_per_delete($id)
+    {
+        size_setting::where('id',$id)->withTrashed()->forceDelete();
+        Toastr::success(__('size_setting.permenant_delete'), __('common.success'));
+        return redirect()->back();
     }
 
     public function sizeStatusChange($id)

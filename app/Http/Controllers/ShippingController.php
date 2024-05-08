@@ -187,7 +187,23 @@ class ShippingController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        shipping::find($id)->delete();
+        Toastr::success(__('shipping.delete_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function retrive_shipping($id)
+    {
+        shipping::where('id',$id)->withTrashed()->restore();
+        Toastr::success(__('shipping.retrive_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function shipping_per_delete($id)
+    {
+        shipping::where('id',$id)->withTrashed()->forceDelete();
+        Toastr::success(__('shipping.permenant_delete'), __('common.success'));
+        return redirect()->back();
     }
 
     public function GetDistrict($division_id)

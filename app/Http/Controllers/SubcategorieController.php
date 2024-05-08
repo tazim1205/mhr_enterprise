@@ -194,7 +194,23 @@ class SubcategorieController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        sub_categorie::find($id)->delete();
+        Toastr::success(__('sub_categorie.delete_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function retrive_subcategorie($id)
+    {
+        sub_categorie::where('id',$id)->withTrashed()->restore();
+        Toastr::success(__('sub_categorie.retrive_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function subcategorie_per_delete($id)
+    {
+        sub_categorie::where('id',$id)->withTrashed()->forceDelete();
+        Toastr::success(__('sub_categorie.permenant_delete'), __('common.success'));
+        return redirect()->back();
     }
 
     public function subcategorieStatusChange($id)

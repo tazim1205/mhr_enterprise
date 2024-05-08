@@ -153,7 +153,23 @@ class CupponController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        cuppon::find($id)->delete();
+        Toastr::success(__('cuppon.delete_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function retrive_cuppon($id)
+    {
+        cuppon::where('id',$id)->withTrashed()->restore();
+        Toastr::success(__('cuppon.retrive_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function cuppon_per_delete($id)
+    {
+        cuppon::where('id',$id)->withTrashed()->forceDelete();
+        Toastr::success(__('cuppon.permenant_delete'), __('common.success'));
+        return redirect()->back();
     }
 
     public function cupponStatusChange($id)

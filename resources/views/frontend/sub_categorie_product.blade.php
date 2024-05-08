@@ -36,10 +36,10 @@
                 <div class="product-card">
                     <!-- <div class="badge">Hot</div> -->
                     <div class="product-tumb">
-                        <img src="{{asset('backend/img/productImage')}}/{{$productImage->image}}" alt="">
+                        <a href="{{url('shop_details')}}/{{$p->id}}"><img src="{{asset('backend/img/productImage')}}/{{$productImage->image}}" alt=""></a>
                     </div>
                     <div class="product-details">
-                        <h4><a href="#">@if(config('app.locale') == 'en'){{$p->product_name_en}}@elseif(config('app.locale') == 'bn'){{$p->product_name_bn}}@endif</a></h4>
+                        <h4><a href="{{url('shop_details')}}/{{$p->id}}">@if(config('app.locale') == 'en'){{$p->product_name_en}}@elseif(config('app.locale') == 'bn'){{$p->product_name_bn}}@endif</a></h4>
                         <div class="product-bottom-details">
                             @if($p->discount_amount > 0)
                             <div class="product-price"><small> ${{$p->regular_price}}</small> ${{$p->regular_price - $p->discount_amount}}</div>

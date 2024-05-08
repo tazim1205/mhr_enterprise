@@ -157,7 +157,23 @@ class TrendController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        trend::find($id)->delete();
+        Toastr::success(__('trend.delete_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function retrive_trend($id)
+    {
+        trend::where('id',$id)->withTrashed()->restore();
+        Toastr::success(__('trend.retrive_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function trend_per_delete($id)
+    {
+        trend::where('id',$id)->withTrashed()->forceDelete();
+        Toastr::success(__('trend.permenant_delete'), __('common.success'));
+        return redirect()->back();
     }
 
     public function trendStatusChange($id)

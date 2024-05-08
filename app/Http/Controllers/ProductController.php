@@ -343,7 +343,49 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        product_color_info::where('product_id',$id)->delete();
+        product_size_info::where('product_id',$id)->delete();
+        product_image_info::where('product_id',$id)->delete();
+
+        product::find($id)->delete();
+        Toastr::success(__('product.delete_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function retrive_product($id)
+    {
+        product_color_info::where('product_id',$id)->withTrashed()->restore();
+        product_size_info::where('product_id',$id)->withTrashed()->restore();
+        product_image_info::where('product_id',$id)->withTrashed()->restore();
+
+
+        product::where('id',$id)->withTrashed()->restore();
+
+        Toastr::success(__('product.retrive_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function product_per_delete($id)
+    {
+
+        $images = product_image_info::where('product_id',$id)->onlyTrashed()->get();
+
+            foreach($images as $i)
+            {
+                $path = public_path().'/backend/img/productImage/'.$i->image;
+                if(file_exists($path))
+                {
+                    unlink($path);
+                }
+            }
+
+        product_color_info::where('product_id',$id)->withTrashed()->forceDelete();
+        product_size_info::where('product_id',$id)->withTrashed()->forceDelete();
+        product_image_info::where('product_id',$id)->withTrashed()->forceDelete();
+
+        product::where('id',$id)->withTrashed()->forceDelete();
+        Toastr::success(__('product.permenant_delete'), __('common.success'));
+        return redirect()->back();
     }
 
     public function productStatusChange($id)
@@ -392,5 +434,15 @@ class ProductController extends Controller
             }
         }
         return $sl_data;
+    }
+
+
+    public function Search_product(Request $request)
+    {
+  
+      $search = product::all();
+  
+      return view('frontend.searchresult',compact('search'));
+  
     }
 }

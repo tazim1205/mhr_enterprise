@@ -160,7 +160,23 @@ class BrandController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        brand::find($id)->delete();
+        Toastr::success(__('brand.delete_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function retrive_brand($id)
+    {
+        brand::where('id',$id)->withTrashed()->restore();
+        Toastr::success(__('brand.retrive_message'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function brand_per_delete($id)
+    {
+        brand::where('id',$id)->withTrashed()->forceDelete();
+        Toastr::success(__('brand.permenant_delete'), __('common.success'));
+        return redirect()->back();
     }
 
     public function brandStatusChange($id)

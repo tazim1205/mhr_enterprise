@@ -1,5 +1,8 @@
 @extends('backend.layouts.master')
 @section('body')
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
 <main class="content">
     <div class="container-fluid p-0">
 
@@ -24,18 +27,7 @@
     @slot('btn_name')
     @lang('add_product_to_trend.create_new')
     @endslot
-
     
-    {{-- for deleted list index --}}
-    @slot('deleted_list_btn_name')
-    @lang('add_product_to_trend.deleted_list')
-    @endslot
-
-    @slot('deleted_list_route')
-    create.trash_list
-    @endslot
-
-   
 
     @endcomponent
         <div class="row">
@@ -49,7 +41,7 @@
                                     <th>@lang('categorie.cat_name')</th>
                                     <th>@lang('trend.trend_name')</th>
                                     <th>@lang('common.status')</th>
-                                    <th>@lang('common.action')</th>
+                                    <th>@lang('common.actions')</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -64,6 +56,8 @@
 </main>
 
 @push('footer_script')
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {

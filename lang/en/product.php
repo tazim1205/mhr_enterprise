@@ -20,7 +20,7 @@ return array(
     'information'=>'Information',
     'size'=>'Size',
     'color'=>'Color',
-    'image'=>'Image',
+    'status'=>'Status',
     'index_title'=>'All Product',
     'product_name'=>'Product Name',
     'create_message'=>'Product Created Successfully',
