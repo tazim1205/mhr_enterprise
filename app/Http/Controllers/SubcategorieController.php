@@ -78,8 +78,8 @@ class SubcategorieController extends Controller
                             $checked = '';
                         }
 
-                        return '<label class="switch rounded">
-                                <input type="checkbox" id="subcategorieStatus-'.$v->id.'" '.$checked.' onclick="return subcategorieStatusChange('.$v->id.')">
+                        return '<label class="form-check form-switch">
+                                <input role="switch" class="form-check-input" type="checkbox" id="subcategorieStatus-'.$v->id.'" '.$checked.' onclick="return subcategorieStatusChange('.$v->id.')">
                                 <span class="slider round"></span>
                             </label>';
                     })

@@ -180,11 +180,29 @@
                         @endphp
                         <td>{{$totalAmount}} /-</td>
                     </tr>
-                    <tr>
+                    {{--<tr>
                         <td colspan="3">Order Status</td>
                         
-                        <td>Pending</td>
-                    </tr>
+                        @if($orders->status == 0)
+                        <td class="text-danger">Pending</td>
+                        @endif
+
+                        @if($orders->status == 1)
+                        <td class="text-warning">Processing</td>
+                        @endif
+
+                        @if($orders->status == 2)
+                        <td class="text-primary">In Delivery</td>
+                        @endif
+
+                        @if($orders->status == 3)
+                        <td class="text-info">Completed</td>
+                        @endif
+
+                        @if($orders->status == 4)
+                        <td class="text-danger">Canceled</td>
+                        @endif
+                    </tr>--}}
                 </table>
             </div>
         </div>

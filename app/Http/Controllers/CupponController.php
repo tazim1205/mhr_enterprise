@@ -43,8 +43,8 @@ class CupponController extends Controller
                             $checked = '';
                         }
 
-                        return '<label class="switch rounded">
-                                <input type="checkbox" id="cupponStatus-'.$v->id.'" '.$checked.' onclick="return cupponStatusChange('.$v->id.')">
+                        return '<label class="form-check form-switch">
+                                <input role="switch" class="form-check-input" type="checkbox" id="cupponStatus-'.$v->id.'" '.$checked.' onclick="return cupponStatusChange('.$v->id.')">
                                 <span class="slider round"></span>
                             </label>';
                     })
