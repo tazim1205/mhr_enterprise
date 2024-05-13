@@ -57,7 +57,7 @@
 
 @push('footer_script')
 
-<link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+<script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -75,6 +75,35 @@
           ]
         });
     });
+</script>
+
+<script>
+
+    function trendproductStatusChange(id)
+    {
+        // alert(id);
+
+        if(id > 0)
+        {
+            var message = @json( __('cuppon.status_message') );
+            var message_type = @json(__('common.success'));
+            $.ajax({
+                header : {
+                    'X-CSRF-TOKEN' : '{{ csrf_token() }}'
+                },
+
+                url : '{{ url('trendproductStatusChange') }}/'+id,
+
+                type : 'GET',
+
+                success : function(data)
+                {
+                    toastr.success(message, message_type);
+                }
+            });
+        }
+    }
+
 </script>
 @endpush
 

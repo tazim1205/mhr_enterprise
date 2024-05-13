@@ -46,8 +46,8 @@ class TrendController extends Controller
                             $checked = '';
                         }
 
-                        return '<label class="switch rounded">
-                                <input type="checkbox" id="trendStatus-'.$v->id.'" '.$checked.' onclick="return trendStatusChange('.$v->id.')">
+                        return '<label class="form-check form-switch">
+                                <input role="switch" class="form-check-input" type="checkbox" id="trendStatus-'.$v->id.'" '.$checked.' onclick="return trendStatusChange('.$v->id.')">
                                 <span class="slider round"></span>
                             </label>';
                     })

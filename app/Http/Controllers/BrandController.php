@@ -50,8 +50,8 @@ class BrandController extends Controller
                             $checked = '';
                         }
 
-                        return '<label class="switch rounded">
-                                <input type="checkbox" id="brandStatus-'.$v->id.'" '.$checked.' onclick="return brandStatusChange('.$v->id.')">
+                        return '<label  class="form-check form-switch">
+                                <input role="switch" class="form-check-input" type="checkbox" id="brandStatus-'.$v->id.'" '.$checked.' onclick="return brandStatusChange('.$v->id.')">
                                 <span class="slider round"></span>
                             </label>';
                     })

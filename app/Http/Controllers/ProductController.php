@@ -115,8 +115,8 @@ class ProductController extends Controller
                             $checked = '';
                         }
 
-                        return '<label class="switch rounded">
-                                <input type="checkbox" id="productStatus-'.$v->id.'" '.$checked.' onclick="return productStatusChange('.$v->id.')">
+                        return '<label class="form-check form-switch">
+                                <input role="switch" class="form-check-input" type="checkbox" id="productStatus-'.$v->id.'" '.$checked.' onclick="return productStatusChange('.$v->id.')">
                                 <span class="slider round"></span>
                             </label>';
                     })

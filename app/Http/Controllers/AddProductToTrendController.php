@@ -95,8 +95,8 @@ class AddProductToTrendController extends Controller
                             $checked = '';
                         }
 
-                        return '<label class="switch rounded">
-                                <input type="checkbox" id="colorStatus-'.$v->id.'" '.$checked.' onclick="return colorStatusChange('.$v->id.')">
+                        return '<label class="form-check form-switch">
+                                <input role="switch" class="form-check-input" type="checkbox" id="trendproductStatus-'.$v->id.'" '.$checked.' onclick="return trendproductStatusChange('.$v->id.')">
                                 <span class="slider round"></span>
                             </label>';
                     })
@@ -130,7 +130,7 @@ class AddProductToTrendController extends Controller
                             </button>
                             <div class="dropdown-menu">
                                 '.$edit_btn.'
-                                <a class="d-none dropdown-item" href="'.route('color.show',$row->id).'"><i class="fa fa-eye"></i> '.__('common.show').'</a>
+                                <a class="d-none dropdown-item" href="'.route('add_product_to_trend.show',$row->id).'"><i class="fa fa-eye"></i> '.__('common.show').'</a>
                                 
                                 '.$destroy_btn.'
                             </div>
@@ -243,15 +243,15 @@ class AddProductToTrendController extends Controller
 
     public function trendproductStatusChange($id)
     {
-       $check = brand::find($id);
+       $check = add_product_to_trend::find($id);
 
        if($check->status == 1)
        {
-        brand::find($id)->update(['status'=>0]);
+        add_product_to_trend::find($id)->update(['status'=>0]);
        }
        else
        {
-        brand::find($id)->update(['status'=>1]);
+        add_product_to_trend::find($id)->update(['status'=>1]);
        }
 
        return 1;

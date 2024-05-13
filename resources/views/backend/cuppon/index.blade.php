@@ -110,7 +110,7 @@
 
 @push('footer_script')
 
-<link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+<script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
