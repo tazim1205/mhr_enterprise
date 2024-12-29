@@ -14,7 +14,7 @@ class MenusTableSeeder extends Seeder
      */
     public function run()
     {
-        
+        \Schema::disableForeignKeyConstraints();
 
         \DB::table('menus')->delete();
         
@@ -531,6 +531,44 @@ class MenusTableSeeder extends Seeder
                 'deleted_at' => NULL,
                 'created_at' => '2024-04-30 10:44:50',
                 'updated_at' => '2024-04-30 11:15:39',
+            ),
+            27 => 
+            array (
+                'id' => 49,
+                'label_id' => NULL,
+                'parent_id' => 15,
+                'menu_name_en' => 'About Us',
+                'menu_name_bn' => 'আমাদের সম্পর্কে',
+                'system_name' => 'About Us',
+                'route' => 'about_us',
+                'slug' => 'index',
+                'order_by' => 4,
+                'status' => 1,
+                'type' => 2,
+                'icon' => NULL,
+                'create_by' => 1,
+                'deleted_at' => NULL,
+                'created_at' => '2024-05-05 10:28:32',
+                'updated_at' => '2024-05-05 17:48:59',
+            ),
+            28 => 
+            array (
+                'id' => 50,
+                'label_id' => NULL,
+                'parent_id' => 15,
+                'menu_name_en' => 'Messages',
+                'menu_name_bn' => 'ম্যাসেজ সমূহ',
+                'system_name' => 'Messages',
+                'route' => 'messages',
+                'slug' => 'index',
+                'order_by' => 5,
+                'status' => 1,
+                'type' => 2,
+                'icon' => NULL,
+                'create_by' => 1,
+                'deleted_at' => NULL,
+                'created_at' => '2024-05-05 10:36:00',
+                'updated_at' => '2024-05-05 10:36:00',
             ),
         ));
         
