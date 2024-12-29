@@ -39,7 +39,8 @@ class FrontendController extends Controller
     public function index()
     {
         $data = product::all();
-        return view("frontend.index",compact('data'));
+        $about = about_us::find(1);
+        return view("frontend.index",compact('data','about'));
     }
     public function shop()
     {

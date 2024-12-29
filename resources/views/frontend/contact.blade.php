@@ -265,7 +265,7 @@ textarea:focus {
                                             </p>
                                             <p>
                                                 <button class="btn btn-primary py-3" type="submit" id="submit">Send Message</button>
-                                                <button class="btn btn-primary w-100 py-3" type="hidden" id="loading">.....</button>
+                                                <button class="btn btn-primary py-3" type="hidden" id="loading">.....</button>
                                             </p>
                                         </div>
                                     </form>
@@ -284,6 +284,7 @@ textarea:focus {
 @push('footer_scripts')
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
 <script>
 
@@ -360,6 +361,8 @@ textarea:focus {
                         toastr.success('Message sent successfully. You will recive a email from us', 'Success');
                         $('#loading').hide();
                         $('#submit').show();
+
+                        location.reload();
                     }
                     else
                     {
