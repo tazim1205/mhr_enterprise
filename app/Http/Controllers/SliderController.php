@@ -48,7 +48,7 @@ class SliderController extends Controller
                         }
 
                         return '<label class="switch rounded">
-                                <input type="checkbox" id="sizeStatus-'.$v->id.'" '.$checked.' onclick="return sizeStatusChange('.$v->id.')">
+                                <input type="checkbox" id="sizeStatus-'.$v->id.'" '.$checked.' onclick="return sliderStatusChange('.$v->id.')">
                                 <span class="slider round"></span>
                             </label>';
                     })
@@ -93,7 +93,7 @@ class SliderController extends Controller
                         </div>';
                         return $btn;
                     })
-                    ->rawColumns(['sl','size_name','order_by','status','action'])
+                    ->rawColumns(['sl','size_name','order_by','image','status','action'])
                     ->make(true);
         }
         return view('backend.slider.index');
@@ -207,6 +207,50 @@ class SliderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        slider::find($id)->delete();
+
+        Toastr::success('Data Temporarily Deleted', 'success');
+        return redirect()->back();
+    }
+
+    public function restore($id)
+    {
+        slider::where('id',$id)->withTrashed()->restore();
+
+        Toastr::success('Deleted Data Restore', 'success');
+        return redirect()->back();
+    }
+    
+    public function slider_per_delete($id)
+    {
+        $pathImage= slider::where('id',$id)->withTrashed()->select('image')->first();
+        
+        $path=public_path().'/Backend/img/slider/'.$pathImage->image;
+
+        if(file_exists($path))
+        {
+            unlink($path);
+        }
+
+        slider::where('id',$id)->withTrashed()->forceDelete();
+
+        Toastr::success(__('slider.permenant_delete'), __('common.success'));
+        return redirect()->back();
+    }
+
+    public function sliderStatusChange($id)
+    {
+        $check = slider::find($id);
+        
+        if ($check->status == 1) 
+        {
+            slider::find($id)->update(['status'=>0]);
+        }
+        else 
+        {
+            slider::find($id)->update(['status'=>1]);
+        }
+
+        return 1;
     }
 }

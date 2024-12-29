@@ -158,6 +158,7 @@ Route::get('trendStatusChange/{id}',[TrendController::class,'trendStatusChange']
 Route::get('retrive_trend/{id}',[TrendController::class,'retrive_trend']);
 Route::get('trend_per_delete/{id}',[TrendController::class,'trend_per_delete']);
 
+
 Route::get('GetSelectProduct/{cat_id}',[AddProductToTrendController::class,'GetSelectProduct']);
 Route::get('trendproductStatusChange/{id}',[AddProductToTrendController::class,'trendproductStatusChange']);
 
@@ -172,6 +173,9 @@ Route::get('shippingStatusChange/{id}',[ShippingController::class,'shippingStatu
 Route::get('retrive_shipping/{id}',[ShippingController::class,'retrive_shipping']);
 Route::get('shipping_per_delete/{id}',[ShippingController::class,'shipping_per_delete']);
 
+Route::get('sliderStatusChange/{id}',[SliderController::class,'sliderStatusChange']);
+Route::get('retrive_slider/{id}',[SliderController::class,'retrive_slider']);
+Route::get('slider_per_delete/{id}',[SliderController::class,'slider_per_delete']);
 // frontend end 
 
 // Route::get('/', function () {

@@ -1,5 +1,8 @@
 @extends('backend.layouts.master')
 @section('body')
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
 <main class="content">
     <div class="container-fluid p-0">
 
@@ -110,6 +113,9 @@
 </main>
 
 @push('footer_script')
+
+<script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         // Datatables Responsive
@@ -130,7 +136,7 @@
 </script>
 
 <script>
-    function ChangePhotoInfoStatus(id)
+    function sliderStatusChange(id)
     {
         // alert(id);
         $.ajax({
@@ -138,7 +144,7 @@
                 'X-CSRF-TOKEN' : '{{ csrf_token() }}'
             },
 
-            url : '{{ url('ChangedPhotoInfoStatus') }}/'+id,
+            url : '{{ url('sliderStatusChange') }}/'+id,
 
             type : 'GET',
 
