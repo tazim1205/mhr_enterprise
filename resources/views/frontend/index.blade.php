@@ -46,11 +46,67 @@
                     </div>
                 </div>
             <!-- End Hero Section -->
+
+            {{--<div class="why-choose-section">
+                <div class="container">
+                    <div class="row justify-content-between text-center">
+                        <div class="col-md-12 col-lg-12 mb-5 mb-lg-0 text-center" style="margin-top: 15px;">
+                            <h2 class="mb-4 section-title">Welcome to Astara Foodstuff Trading LLC</h2>
+                            <p style="font-size: 16px;margin-bottom: 28px !important;">Astara Foodstuff Trading LLC has been established in a fast dynamic developing city, Dubai, United Arab Emirates.</p>
+                        </div> 
+                        <div class="col-lg-12">
+                            <div class="row my-5">
+                                <div class="col-3 col-md-3">
+                                    <div class="feature">
+                                        <div class="icon">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </div>
+                                        <h3>Fast &amp; Free Shipping</h3>
+                                        <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-3 col-md-3">
+                                    <div class="feature">
+                                        <div class="icon">
+                                            <i class="fa-solid fa-chart-line"></i>
+                                        </div>
+                                        <h3>Easy to Shop</h3>
+                                        <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-3 col-md-3">
+                                    <div class="feature">
+                                        <div class="icon">
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <h3>24/7 Support</h3>
+                                        <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-3 col-md-3">
+                                    <div class="feature">
+                                        <div class="icon">
+                                            <i class="fa-solid fa-spinner"></i>
+                                        </div>
+                                        <h3>Hassle Free Returns</h3>
+                                        <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>--}}
             
             <!-- Start Category Wise Product Section -->
             <div class="untree_co-section product-section before-footer-section">
                 <div class="container">
                     <div class="row">
+
                         <div class="col-md-12 col-lg-12 mb-5 mb-3 text-center">
                             <h2 class="mb-4 section-title">Category</h2>
                         </div>
@@ -196,6 +252,146 @@
             @endforeach
             @endif
         <!-- End Product Section -->
+
+        <!-- Start Brand Slider -->
+		<div class="testimonial-section" style="background: #fff;padding: 21px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-7 mx-auto text-center">
+						<h2 class="section-title">Our Brands</h2>
+					</div>
+				</div>
+
+				<div class="row justify-content-center">
+					
+                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+
+                        <div class="uk-slider-items uk-grid">
+                            <div>
+                                <div class="uk-panel">
+                                    <img src="{{asset('frontend/assets/img/brand/Tamara-1.jpg')}}" width="200" height="300" alt="">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-panel">
+                                    <img src="{{asset('frontend/assets/img/brand/El-Basha.jpg')}}" width="200" height="300" alt="">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-panel">
+                                    <img src="{{asset('frontend/assets/img/brand/ulker.jpg')}}" width="200" height="300" alt="">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-panel">
+                                    <img src="{{asset('frontend/assets/img/brand/sweet.jpg')}}" width="200" height="300" alt="">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-panel">
+                                    <img src="{{asset('frontend/assets/img/brand/Mandi.jpg')}}" width="200" height="300" alt="">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-panel">
+                                    <img src="{{asset('frontend/assets/img/brand/saka.jpg')}}" width="200" height="300" alt="">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-panel">
+                                    <img src="{{asset('frontend/assets/img/brand/Tamara-1.jpg')}}" width="200" height="300" alt="">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-panel">
+                                    <img src="{{asset('frontend/assets/img/brand/El-Basha.jpg')}}" width="200" height="300" alt="">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-panel">
+                                    <img src="{{asset('frontend/assets/img/brand/ulker.jpg')}}" width="200" height="300" alt="">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-panel">
+                                    <img src="{{asset('frontend/assets/img/brand/sweet.jpg')}}" width="200" height="300" alt="">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-panel">
+                                    <img src="{{asset('frontend/assets/img/brand/Mandi.jpg')}}" width="200" height="300" alt="">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-panel">
+                                    <img src="{{asset('frontend/assets/img/brand/saka.jpg')}}" width="200" height="300" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
+                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slider-item="next"></a>
+
+                    </div>
+					
+				</div>
+			</div>
+		</div>
+		<!-- End Brand Slider -->
+        
+        <!-- Start Clients Slider -->
+		<div class="testimonial-section" style="background: #fff;padding: 21px;margin-top: 77px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-7 mx-auto text-center">
+						<h2 class="section-title">Our Clients</h2>
+					</div>
+				</div>
+
+				<div class="row justify-content-center">
+					
+                    <div class="uk-grid-small uk-child-width-1-4@s uk-flex-center uk-text-center" uk-grid>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body">
+                                <img src="{{asset('frontend/assets/img/clients/bayara.png')}}" width="100" height="200" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body">
+                                <img src="{{asset('frontend/assets/img/clients/Fujairah-Welfare-Association.jpg')}}" width="100" height="200" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body">
+                                <img src="{{asset('frontend/assets/img/clients/Sharjah-Charity-International.jpg')}}" width="100" height="200" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body">
+                                <img src="{{asset('frontend/assets/img/clients/union-coop.jpg')}}" width="100" height="200" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body">
+                                <img src="{{asset('frontend/assets/img/clients/Aswaaq.jpg')}}" width="100" height="200" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body">
+                                <img src="{{asset('frontend/assets/img/clients/al-ahli.png')}}" width="100" height="200" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body">
+                                <img src="{{asset('frontend/assets/img/clients/alnoor-logo.jpg')}}" width="100" height="200" alt="">
+                            </div>
+                        </div>
+                    </div>
+					
+				</div>
+			</div>
+		</div>
+		<!-- End Clients Slider -->
 
     <!-- Main Content End -->
 @endsection

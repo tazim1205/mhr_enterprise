@@ -274,7 +274,8 @@ a {
       height: 70%; }
 
 .why-choose-section {
-  padding: 7rem 0; }
+  margin-top: 34px;
+}
   .why-choose-section .img-wrap {
     position: relative; }
     .why-choose-section .img-wrap:before {
@@ -297,7 +298,8 @@ a {
   .feature .icon {
     display: inline-block;
     position: relative;
-    margin-bottom: 20px; }
+    /* margin-bottom: 20px;  */
+  }
     .feature .icon:before {
       content: "";
       width: 33px;
@@ -308,8 +310,10 @@ a {
       right: -8px;
       bottom: 0; }
   .feature h3 {
-    font-size: 14px;
-    color: #2f2f2f; }
+    font-size: 17px;
+    color: #2f2f2f;
+    line-height: 0px;
+  }
   .feature p {
     font-size: 14px;
     line-height: 22px;
@@ -1097,4 +1101,8 @@ textarea {
 
 .product-links a:hover {
   color: #fbb72c;
+}
+
+.uk-panel img {
+  padding: 9px;
 }
