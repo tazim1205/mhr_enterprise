@@ -1,4 +1,7 @@
     <!-- Start Footer Section -->
+    @php
+    $path = public_path().'/Backend/settings/'.$settings->logo;
+    @endphp
     <footer class="footer-section">
 			<div class="container relative">
 
@@ -9,8 +12,10 @@
 				<div class="row">
 					<div class="col-lg-8">
 						<div class="subscription-form">
-							<h3 class="d-flex align-items-center"><span class="me-1"><img src="{{ asset('') }}frontend/assets/img/images/envelope-outline.svg" alt="Image" class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
-
+							<h3 class="d-flex align-items-center"><span class="me-1"><img src="{{ asset('') }}frontend/assets/img/images/envelope-outline.svg" alt="Image" class="img-fluid"></span><span>SUBSCRIBE TO OUR NEW OFFERS</span>
+						</h3>
+						<span >Enter your e-mail address to receive regular updates, as well asnews on upcoming events and special offers.</span>
+							<br><br>
 							<form action="#" class="row g-3">
 								<div class="col-auto">
 									<input type="text" class="form-control" placeholder="Enter your name">
@@ -31,8 +36,16 @@
 
 				<div class="row g-5 mb-5">
 					<div class="col-lg-4">
-						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">MHR<span>.</span></a></div>
-						<p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
+						<div class="mb-4 footer-logo-wrap">
+							<a href="#" class="footer-logo">
+								@if(file_exists($path))
+								<img src="{{asset('Backend/settings')}}/{{$settings->logo}}" alt="" class="img-fluid" style="height: 130px;">
+								@else
+								@lang('settings.logo')
+								@endif
+							</a>
+						</div>
+						<p class="mb-4"></p>
 
 						<ul class="list-unstyled custom-social">
 							<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
@@ -101,9 +114,8 @@
 		
 		<!-- UIkit JS -->
 		<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.22/dist/js/uikit.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.22/dist/js/uikit-icons.min.js">
-
-		</script><script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.22/dist/js/uikit-icons.min.js"></script>
+		<script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 
 		@stack('footer_scripts')
 	</body>

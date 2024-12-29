@@ -77,7 +77,7 @@
         font-size: 20px;
         text-align: center;
     }
-    
+
 
     .search-container button {
         float: right;
@@ -89,32 +89,41 @@
         border: none;
         cursor: pointer;
     }
-    
+
     .search-container button:hover {
         background: #ccc;
     }
-    
+
     .search-container input[type=text] {
         padding: 6px;
         margin-top: 5px;
         font-size: 17px;
         border: none;
     }
-    
+
     @media screen and (max-width: 480px) {
         .search-container form{
             margin-left: 50px;
         }
 }
 </style>
+@php
+$path = public_path().'/Backend/settings/'.$settings->logo;
+@endphp
 <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
     <div class="container">
-        <a class="navbar-brand" href="{{url('/')}}">MHR<span>.</span></a>
-        
+        <a class="navbar-brand" href="{{url('/')}}">
+            @if(file_exists($path))
+            <img src="{{asset('Backend/settings')}}/{{$settings->logo}}" alt="" class="img-fluid" style="height: 80px;">
+            @else
+            @lang('settings.logo')
+            @endif
+        </a>
+
         <ul class="multilevel-dropdown-menu">
             <li class="parent"><a href="#">Category</a>
-            
+
             <ul class="child">
                     @if($categorie)
                     @foreach($categorie as $c)
@@ -146,32 +155,27 @@
         {{--<div class="search-container">
             <form method="get" action="{{ url('/searchproducts') }}">
             @csrf
-            
+
                 <input type="text" id="searchbox"  name="search" placeholder="What are you looking for?"  autocomplete="off" required="" onkeyup="searchproducts();" required="">
                 <button type="submit" ><i class="fa fa-search"></i></button>
-                
+
             </form>
             <div id="searchdata"></div>
         </div>--}}
 
-        
+
 
         <div class="collapse navbar-collapse" id="navbarsFurni">
             <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
                 <li class="nav-item active">
                     <a class="nav-link" href="{{url('/')}}">Home</a>
                 </li>
+                
                 <li><a class="nav-link" href="{{url('/shop')}}">New Arrivals</a></li>
                 <li><a class="nav-link" href="{{url('/about')}}">About us</a></li>
                 <li><a class="nav-link" href="{{url('/contact')}}">Contact us</a></li>
             </ul>
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5 logosection">
-              {{--  @if(Auth::guard('guest')->check())
-                <li><a class="nav-link" href="{{url('')}}" style="color: #fff;"></a></li>
-                @else
-                <li><a class="nav-link" href="{{url('login_guest')}}" style="color: #2f2f2f;background: #f9bf29;border-color: #f9bf29;"><i class="fa-solid fa-circle-user"></i>Login</a></li>
-                <li><a class="nav-link" href="{{url('registration')}}" style="color: #2f2f2f;background: #f9bf29;border-color: #f9bf29;">Registration</a></li>
-                @endif --}}
 
                 @if(Auth::guard('guest')->check())
                 <li><a href="{{ url('guest_dashboard') }}" uk-tooltip="title: Profile; pos:bottom"><i class="fa-solid fa-circle-user"></i></a>{{Auth::guard('guest')->user()->first_name}} {{Auth::guard('guest')->user()->last_name}}</li>
@@ -190,11 +194,11 @@
                 </li>
 
                 @endif
-                
+
             </ul>
         </div>
     </div>
-        
+
 </nav>
 
 
@@ -204,7 +208,7 @@
 
         countProductCart();
         countWishList();
-        
+
 
     });
 
