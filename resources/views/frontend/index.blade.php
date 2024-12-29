@@ -51,8 +51,8 @@
                 <div class="container">
                     <div class="row justify-content-between text-center">
                         <div class="col-md-12 col-lg-12 mb-5 mb-lg-0 text-center" style="margin-top: 15px;">
-                            <h2 class="mb-4 section-title">Welcome to Astara Foodstuff Trading LLC</h2>
-                            <p style="font-size: 16px;margin-bottom: 28px !important;">Astara Foodstuff Trading LLC has been established in a fast dynamic developing city, Dubai, United Arab Emirates.</p>
+                            <h2 class="mb-4 section-title">Welcome to {{$about->title_en}}</h2>
+                            <p style="font-size: 16px;margin-bottom: 28px !important;">{!! $about->description !!}</p>
                         </div> 
                         <div class="col-lg-12">
                             <div class="row my-5">
@@ -62,7 +62,7 @@
                                             <i class="fa-solid fa-eye"></i>
                                         </div>
                                         <h3>Fast &amp; Free Shipping</h3>
-                                        <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                                        <p>{!! $about->description !!}</p>
                                     </div>
                                 </div>
 
@@ -72,7 +72,7 @@
                                             <i class="fa-solid fa-chart-line"></i>
                                         </div>
                                         <h3>Easy to Shop</h3>
-                                        <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                                        <p>{!! $about->description !!}</p>
                                     </div>
                                 </div>
 
@@ -82,7 +82,7 @@
                                             <i class="fa-solid fa-star"></i>
                                         </div>
                                         <h3>24/7 Support</h3>
-                                        <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                                        <p>{!! $about->description !!}</p>
                                     </div>
                                 </div>
 
@@ -92,7 +92,7 @@
                                             <i class="fa-solid fa-spinner"></i>
                                         </div>
                                         <h3>Hassle Free Returns</h3>
-                                        <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                                        <p>{!! $about->description !!}</p>
                                     </div>
                                 </div>
 
