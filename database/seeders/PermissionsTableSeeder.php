@@ -14,7 +14,7 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
-        
+        \Schema::disableForeignKeyConstraints();
 
         \DB::table('permissions')->delete();
         
@@ -2340,6 +2340,105 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2024-04-30 11:15:42',
                 'updated_at' => '2024-04-30 11:15:42',
+            ),
+            258 => 
+            array (
+                'id' => 511,
+                'name' => 'About Us create',
+                'parent' => 'About Us',
+                'guard_name' => 'web',
+                'created_at' => '2024-05-05 17:48:59',
+                'updated_at' => '2024-05-05 17:48:59',
+            ),
+            259 => 
+            array (
+                'id' => 512,
+                'name' => 'About Us index',
+                'parent' => 'About Us',
+                'guard_name' => 'web',
+                'created_at' => '2024-05-05 17:48:59',
+                'updated_at' => '2024-05-05 17:48:59',
+            ),
+            260 => 
+            array (
+                'id' => 513,
+                'name' => 'About Us show',
+                'parent' => 'About Us',
+                'guard_name' => 'web',
+                'created_at' => '2024-05-05 17:48:59',
+                'updated_at' => '2024-05-05 17:48:59',
+            ),
+            261 => 
+            array (
+                'id' => 514,
+                'name' => 'About Us edit',
+                'parent' => 'About Us',
+                'guard_name' => 'web',
+                'created_at' => '2024-05-05 17:48:59',
+                'updated_at' => '2024-05-05 17:48:59',
+            ),
+            262 => 
+            array (
+                'id' => 515,
+                'name' => 'About Us destroy',
+                'parent' => 'About Us',
+                'guard_name' => 'web',
+                'created_at' => '2024-05-05 17:48:59',
+                'updated_at' => '2024-05-05 17:48:59',
+            ),
+            263 => 
+            array (
+                'id' => 516,
+                'name' => 'About Us trash',
+                'parent' => 'About Us',
+                'guard_name' => 'web',
+                'created_at' => '2024-05-05 17:48:59',
+                'updated_at' => '2024-05-05 17:48:59',
+            ),
+            264 => 
+            array (
+                'id' => 517,
+                'name' => 'About Us restore',
+                'parent' => 'About Us',
+                'guard_name' => 'web',
+                'created_at' => '2024-05-05 17:48:59',
+                'updated_at' => '2024-05-05 17:48:59',
+            ),
+            265 => 
+            array (
+                'id' => 518,
+                'name' => 'About Us delete',
+                'parent' => 'About Us',
+                'guard_name' => 'web',
+                'created_at' => '2024-05-05 17:48:59',
+                'updated_at' => '2024-05-05 17:48:59',
+            ),
+            266 => 
+            array (
+                'id' => 519,
+                'name' => 'About Us status',
+                'parent' => 'About Us',
+                'guard_name' => 'web',
+                'created_at' => '2024-05-05 17:48:59',
+                'updated_at' => '2024-05-05 17:48:59',
+            ),
+            267 => 
+            array (
+                'id' => 520,
+                'name' => 'About Us properties',
+                'parent' => 'About Us',
+                'guard_name' => 'web',
+                'created_at' => '2024-05-05 17:49:00',
+                'updated_at' => '2024-05-05 17:49:00',
+            ),
+            268 => 
+            array (
+                'id' => 521,
+                'name' => 'About Us print',
+                'parent' => 'About Us',
+                'guard_name' => 'web',
+                'created_at' => '2024-05-05 17:49:00',
+                'updated_at' => '2024-05-05 17:49:00',
             ),
         ));
         

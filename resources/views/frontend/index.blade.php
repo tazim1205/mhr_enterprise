@@ -47,7 +47,7 @@
                 </div>
             <!-- End Hero Section -->
 
-            {{--<div class="why-choose-section">
+            <div class="why-choose-section">
                 <div class="container">
                     <div class="row justify-content-between text-center">
                         <div class="col-md-12 col-lg-12 mb-5 mb-lg-0 text-center" style="margin-top: 15px;">
@@ -100,7 +100,7 @@
                         </div>
                     </div>
                 </div>
-            </div>--}}
+            </div>
             
             <!-- Start Category Wise Product Section -->
             <div class="untree_co-section product-section before-footer-section">
